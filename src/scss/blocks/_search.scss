@@ -1,0 +1,13 @@
+.search-bar {
+  height: 10rem;
+  line-height: 10rem;
+
+  &__col {
+    @include span-columns(4 of 12);
+    @include media($mobile) {
+      @include span-columns(12);
+      line-height: 3.2rem;
+      padding-left: 1rem;
+    }
+  }
+}

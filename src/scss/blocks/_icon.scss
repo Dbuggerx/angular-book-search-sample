@@ -1,0 +1,13 @@
+.icon {
+  font-size: 1.5rem;
+
+  &--heart::before {
+    @include icon('heart-outline');
+    color: $heart-icon-color;
+  }
+
+  &--calendar::before {
+    @include icon('calendar-clock');
+    color: $calendar-icon-color;
+  }
+}

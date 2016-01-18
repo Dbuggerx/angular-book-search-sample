@@ -25,8 +25,10 @@ System.config({
     "bourbon": "bower:bourbon@4.2.6",
     "core-js": "npm:core-js@1.2.6",
     "jquery": "bower:jquery@2.2.0",
+    "mdi": "npm:mdi@1.4.57",
     "neat": "bower:neat@1.7.2",
     "normalize-css": "bower:normalize-css@3.0.3",
+    "roboto-fontface": "bower:roboto-fontface@0.4.3",
     "bower:angular-mocks@1.4.8": {
       "angular": "bower:angular@1.4.8"
     },
@@ -37,6 +39,9 @@ System.config({
       "bourbon": "bower:bourbon@4.2.6"
     },
     "bower:normalize-css@3.0.3": {
+      "css": "github:systemjs/plugin-css@0.1.20"
+    },
+    "bower:roboto-fontface@0.4.3": {
       "css": "github:systemjs/plugin-css@0.1.20"
     },
     "github:jspm/nodelibs-assert@0.1.0": {

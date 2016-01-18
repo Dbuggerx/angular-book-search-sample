@@ -1,0 +1,12 @@
+  @import '../../jspm_packages/npm/mdi@1.4.57/scss/materialdesignicons';
+  @font-face {
+    font-family: 'Material Design Icons';
+    src: resolve('materialdesignicons-webfont.eot');
+    src: resolve('materialdesignicons-webfont.eot') format('embedded-opentype'),
+      resolve('materialdesignicons-webfont.woff2') format('woff2'),
+      resolve('materialdesignicons-webfont.woff') format('woff'),
+      resolve('materialdesignicons-webfont.ttf') format('truetype'),
+      resolve('materialdesignicons-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }

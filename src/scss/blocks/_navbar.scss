@@ -1,0 +1,12 @@
+.navbar {
+  background-color: $primary-color;
+  color: $primary-text-color;
+  font-family: 'Roboto-Bold';
+  text-align: left;
+
+  &--dark {
+    background-color: $primary-color-dark;
+    font-family: 'Roboto Medium';
+    line-height: 2rem;
+  }
+}

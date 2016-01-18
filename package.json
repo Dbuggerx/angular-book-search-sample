@@ -27,8 +27,10 @@
       "bitters": "bower:bitters@^1.2.0",
       "bourbon": "bower:bourbon@^4.2.6",
       "jquery": "bower:jquery@^2.2.0",
+      "mdi": "npm:mdi@^1.4.57",
       "neat": "bower:neat@^1.7.2",
-      "normalize-css": "bower:normalize-css@^3.0.3"
+      "normalize-css": "bower:normalize-css@^3.0.3",
+      "roboto-fontface": "bower:roboto-fontface@^0.4.3"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",

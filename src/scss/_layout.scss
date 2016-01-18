@@ -1,0 +1,15 @@
+.container {
+  @include outer-container();
+}
+
+.grid {
+  @include span-columns(12);
+  color: $primary-color-text;
+  font-family: 'Roboto';
+
+  &__main {
+    margin-top: 25px;
+    min-height: 70%;
+    padding: 0 25px;
+  }
+}

@@ -11,6 +11,7 @@ import autoprefixer from 'autoprefixer';
 import minifyCss from 'gulp-cssnano';
 import sassdoc from 'sassdoc';
 import del from 'del';
+import path from 'path';
 
 const sassDocOptions = {
   dest: global.paths.sassdocs
@@ -34,23 +35,30 @@ gulp.task('sass', (done) => {
     .pipe(rename('app.css'))
     .pipe(postcss([autoprefixer(), postcssImport, postcssAssets({
       basePath: 'src',
-      loadPaths: ['img']
+      loadPaths: ['../jspm_packages/npm/mdi@1.4.57/fonts',
+        '../jspm_packages/bower/roboto-fontface@0.4.3/fonts', 'img'
+      ]
     })]))
     .pipe(gulp.dest(global.paths.css))
     .on('end', done);
 });
 
-gulp.task('buildSass', () => {
-  return gulp.src(global.paths.sassMain)
-    .pipe(sass(sassOptions).on('error', sass.logError))
-    .pipe(rename('app.css'))
-    .pipe(postcss([autoprefixer(), postcssImport, postcssAssets({
-      basePath: global.paths.dist,
-      loadPaths: ['fonts', 'img']
-    })]))
-    .pipe(minifyCss())
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest(global.paths.dist));
+gulp.task('buildSass', (done) => {
+  gulp.src(['jspm_packages/npm/mdi@1.4.57/fonts/**', '../jspm_packages/bower/roboto-fontface@0.4.3/fonts/**'])
+    .pipe(gulp.dest(path.join(global.paths.dist, 'fonts')))
+    .on('end', () => {
+      gulp.src(global.paths.sassMain)
+        .pipe(sass(sassOptions).on('error', sass.logError))
+        .pipe(rename('app.css'))
+        .pipe(postcss([autoprefixer(), postcssImport, postcssAssets({
+          basePath: global.paths.dist,
+          loadPaths: ['fonts', 'img']
+        })]))
+        .pipe(minifyCss())
+        .pipe(rename({
+          suffix: '.min'
+        }))
+        .pipe(gulp.dest(global.paths.dist));
+      done();
+    });
 });
