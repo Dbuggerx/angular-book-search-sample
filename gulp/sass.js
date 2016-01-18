@@ -40,7 +40,7 @@ gulp.task('sass', (done) => {
     .on('end', done);
 });
 
-gulp.task('buildsass', () => {
+gulp.task('buildSass', () => {
   return gulp.src(global.paths.sassMain)
     .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(rename('app.css'))
