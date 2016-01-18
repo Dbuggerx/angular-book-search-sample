@@ -20,6 +20,14 @@
   "license": "ISC",
   "jspm": {
     "dependencies": {
+      "angular": "bower:angular@^1.4.8",
+      "angular-mocks": "bower:angular-mocks@^1.4.8",
+      "angular-resource": "npm:angular-resource@^1.4.8",
+      "angular-ui-router": "bower:angular-ui-router@^0.2.15",
+      "bitters": "bower:bitters@^1.2.0",
+      "bourbon": "bower:bourbon@^4.2.6",
+      "jquery": "bower:jquery@^2.2.0",
+      "neat": "bower:neat@^1.7.2",
       "normalize-css": "bower:normalize-css@^3.0.3"
     },
     "devDependencies": {
@@ -50,6 +58,7 @@
     "postcss-assets": "^3.0.3",
     "postcss-import": "^7.1.3",
     "require-dir": "^0.3.0",
-    "run-sequence": "^1.1.5"
+    "run-sequence": "^1.1.5",
+    "sassdoc": "^2.1.19"
   }
 }

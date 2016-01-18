@@ -5,10 +5,11 @@ import gulp from 'gulp';
 import browserSync from 'browser-sync';
 import util from 'gulp-util';
 import path from 'path';
+import runSeq from 'run-sequence';
 
 let bs = browserSync.create();
 
-function logChanges(event) {
+function onChange(event) {
   util.log(
     util.colors.green('File ' + event.type + ': ') +
     util.colors.magenta(path.basename(event.path))
@@ -20,7 +21,7 @@ gulp.task('reload', function (done) {
   done();
 });
 
-gulp.task('serve', () => {
+gulp.task('serve', ['sass'], () => {
   bs.init({
     port: process.env.PORT || 3000,
     open: true,
@@ -29,9 +30,10 @@ gulp.task('serve', () => {
     },
   });
 
-  gulp.watch([global.paths.js], ['lintjs', 'reload']).on('change', logChanges);
-  gulp.watch([global.paths.sass], ['sass', 'reload']).on('change', logChanges);
-  gulp.watch([global.paths.html, global.paths.index], ['reload']).on('change', logChanges);
+  gulp.watch([global.paths.js], ['lintjs']).on('change', onChange);
+  gulp.watch([global.paths.sass], ['sass']).on('change', onChange);
+  gulp.watch([path.join(global.paths.css, 'app.css')], ['reload']).on('change', onChange);
+  gulp.watch([global.paths.html, global.paths.index], ['']).on('change', onChange);
 });
 
 gulp.task('serve:dist', ['build'], () => {

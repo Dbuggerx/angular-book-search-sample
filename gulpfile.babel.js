@@ -5,12 +5,14 @@
 global.paths = {
   // HTML sources.
   'html': './src/templates/**/*.html',
-  //index
+  //Index page
   'index': './src/index.html',
   // JS sources.
   'js': './src/js/**/*.js',
   // SASS sources.
   'sass': './src/scss/**/*.scss',
+  //Main SASS file
+  'sassMain': './src/scss/main.scss',
   // Image sources.
   'img': './src/img/*',
   // Sources folder.
@@ -18,7 +20,9 @@ global.paths = {
   // Compiled CSS folder.
   'css': './src/css',
   // Distribution folder.
-  'dist': './dist'
+  'dist': './dist',
+  // Documentation folder for SASS
+  'sassdocs': './docs/sass'
 };
 
 import gulp from 'gulp';
