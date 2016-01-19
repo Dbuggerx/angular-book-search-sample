@@ -1,5 +1,11 @@
 .container {
   @include outer-container();
+  @include media($mobile) {
+    padding: 0 1rem;
+  }
+  @include media($tablet) {
+    padding: 0 1rem;
+  }
 }
 
 .grid {

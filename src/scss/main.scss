@@ -1,12 +1,5 @@
-@import '../../jspm_packages/bower/normalize-css@3.0.3/normalize.css';
-
-@import '../../jspm_packages/bower/bourbon@4.2.6/app/assets/stylesheets/bourbon';
-@import '../../jspm_packages/bower/neat@1.7.2/app/assets/stylesheets/neat';
-@import '../../jspm_packages/bower/bitters@1.2.0/app/assets/stylesheets/base';
-
-@import 'components/components';
+@import 'variables';
+@import 'plugins/plugins';
 @import 'mixins';
-@import 'colors';
-@import 'breakpoints';
 @import 'layout';
 @import 'blocks/blocks';

@@ -1,54 +1,37 @@
-<div class="navbar navbar">
-  <div class="search-bar container">
+<nav class="navbar navbar">
+  <section class="container">
+    <span class="navbar__title">Search our books!</span>
+    <div class="searchbar">
 
-    <div class="search-bar__col">
-      <div class="search-bar__label">
-        Find me the best
-      </div>
-      <div class="search-bar__input">
+      <div class="searchbar__col">
         <div class="dropdown" data-refills-dropdown>
           <div class="dropdown-container">
-            <p class="dropdown-description">>></p>
-            <p class="dropdown-button">Click to Select</p>
+            <div class="dropdown-button">Category</div>
             <ul class="dropdown-menu dropdown-select">
               <li data-ng-repeat="genre in booksCtrl.bookGenres">{{genre}}</li>
             </ul>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="search-bar__col">
-      <div class="search-bar__label">
-        Find me the best
-      </div>
-      <div class="search-bar__input">
+      <div class="searchbar__col">
         <div class="dropdown" data-refills-dropdown>
           <div class="dropdown-container">
-            <p class="dropdown-description">>></p>
-            <p class="dropdown-button">Click to Select</p>
+            <div class="dropdown-button">Genre</div>
             <ul class="dropdown-menu dropdown-select">
               <li data-ng-repeat="genre in booksCtrl.bookGenres">{{genre}}</li>
             </ul>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="search-bar__col">
-      <div class="search-bar__label">
-        Find me the best
-      </div>
-      <div class="search-bar__input">
-        <div class="dropdown" data-refills-dropdown>
-          <div class="dropdown-container">
-            <p class="dropdown-description">>></p>
-            <p class="dropdown-button">Click to Select</p>
-            <ul class="dropdown-menu dropdown-select">
-              <li data-ng-repeat="genre in booksCtrl.bookGenres">{{genre}}</li>
-            </ul>
-          </div>
+      <div class="searchbar__col">
+        <div class="search-box">
+          <input type="text" class="search-box__input" placeholder="Search" />
+          <div class="icon icon--search search-box__btn"></div>
         </div>
       </div>
-    </div>
-  </div>
+
+  </section>
+
+</nav>

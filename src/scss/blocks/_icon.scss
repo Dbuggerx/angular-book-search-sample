@@ -8,6 +8,10 @@
 
   &--calendar::before {
     @include icon('calendar-clock');
-    color: $calendar-icon-color;
+    color: $icon-color;
+  }
+
+  &--search::before {
+    @include icon('magnify');
   }
 }

@@ -1,9 +1,11 @@
-.search-bar {
+.searchbar {
+  height: 8rem;
+
   &__col {
     @include span-columns(4 of 12);
-    @include media($mobile) {
+    @include media($tablet) {
       @include span-columns(12 of 12);
-      padding-left: 1rem;
+      padding-bottom: 1rem;
     }
   }
 
