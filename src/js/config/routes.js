@@ -3,11 +3,23 @@ export default function ($stateProvider, $urlRouterProvider) {
 
   $stateProvider
     .state('books', {
+      abstract: true,
       url: '/books',
-      templateUrl: 'templates/books.html',
       controller: 'BooksCtrl',
-      controllerAs: 'booksCtrl'
+      controllerAs: 'booksCtrl',
+      templateUrl: 'templates/layout.html',
+    })
+    .state('books.search', {
+      url: '/search',
+      views: {
+        "": {
+          templateUrl: 'templates/books/list.html',
+        },
+        "header": {
+          templateUrl: 'templates/books/header-search.html',
+        }
+      }
     });
 
-  $urlRouterProvider.otherwise('/books');
+  $urlRouterProvider.otherwise('/books/search');
 }

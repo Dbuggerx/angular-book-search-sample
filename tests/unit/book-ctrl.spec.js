@@ -26,7 +26,7 @@ describe('BooksCtrl', () => {
     expect(ctrl).toBeDefined();
   });
 
-  describe('contructor', () => {
+  describe('constructor', () => {
     it('should get book genres', () => {
       expect(ctrl.bookGenres.length).toBe(3);
     });

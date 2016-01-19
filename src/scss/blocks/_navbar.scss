@@ -2,11 +2,15 @@
   background-color: $primary-color;
   color: $primary-text-color;
   font-family: 'Roboto-Bold';
-  text-align: left;
+  line-height: 7rem;
 
   &--dark {
     background-color: $primary-color-dark;
-    font-family: 'Roboto Medium';
     line-height: 2rem;
+  }
+
+  &__logo {
+    font-family: 'Roboto-Bold';
+    color: $accent-text-color;
   }
 }

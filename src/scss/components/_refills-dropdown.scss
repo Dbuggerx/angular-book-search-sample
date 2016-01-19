@@ -16,8 +16,9 @@
   $dropdown-padding: 1em;
   $dropdown-distance-from-menu: 45px;
   $dropdown-arrow-top-distance: 0;
-
   line-height: $base-line-height;
+  display: inline-block;
+  vertical-align: middle;
 
   .dropdown-container {
     display: inline-block;
@@ -34,7 +35,7 @@
     border-top: $dropdown-border;
     color: $dropdown-description-color;
     float: left;
-    font-size: 0.7em;
+    font-size: .7em;
     line-height: $dropdown-height;
     margin: 0;
     padding: 0 ($dropdown-padding / 2) 0 $dropdown-padding;
@@ -53,7 +54,7 @@
     border-bottom: $dropdown-border;
     cursor: pointer;
     float: right;
-    font-size: 0.7em;
+    font-size: .7em;
     line-height: $dropdown-height;
     margin: 0;
     padding: 0 ($dropdown-padding * 2.5) 0 ($dropdown-padding / 2);
@@ -67,6 +68,15 @@
 
   .dropdown-button:hover {
     background-color: $dropdown-background-hover;
+  }
+
+  .dropdown-button:after {
+    color: $base-font-color;
+    content: "\25BE";
+    display: block;
+    position: absolute;
+    right: $dropdown-padding;
+    top: $dropdown-arrow-top-distance;
   }
 
   .dropdown-menu {
