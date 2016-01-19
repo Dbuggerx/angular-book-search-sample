@@ -17,7 +17,7 @@ gulp.task('templates', done => {
 });
 
 // Build templates for distribution.
-gulp.task('buildTemplates', () => {
+gulp.task('build-templates', () => {
   //Populate the $templateCache
   return gulp.src(global.paths.html)
     .pipe(minifyHtml({
@@ -33,7 +33,7 @@ gulp.task('buildTemplates', () => {
 });
 
 // Build HTML for distribution.
-gulp.task('buildHtml', () => {
+gulp.task('build-html', () => {
   gulp.src(path.join(global.paths.src, 'index.html'))
     .pipe(htmlreplace({
       'js': 'app.min.js',

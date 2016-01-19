@@ -22,7 +22,9 @@ global.paths = {
   // Distribution folder.
   'dist': './dist',
   // Documentation folder for SASS
-  'sassdocs': './docs/sass'
+  'sassdocs': './docs/sass',
+  // Documentation folder for JS
+  'jsdocs': './docs/js'
 };
 
 import gulp from 'gulp';

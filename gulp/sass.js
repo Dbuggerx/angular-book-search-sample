@@ -43,7 +43,7 @@ gulp.task('sass', (done) => {
     .on('end', done);
 });
 
-gulp.task('buildSass', (done) => {
+gulp.task('build-sass', (done) => {
   gulp.src(['jspm_packages/npm/mdi@1.4.57/fonts/**', '../jspm_packages/bower/roboto-fontface@0.4.3/fonts/**'])
     .pipe(gulp.dest(path.join(global.paths.dist, 'fonts')))
     .on('end', () => {

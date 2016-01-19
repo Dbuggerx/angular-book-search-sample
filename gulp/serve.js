@@ -46,3 +46,13 @@ gulp.task('serve:dist', ['build'], () => {
     },
   });
 });
+
+gulp.task('serve:jsdoc', ['jsdoc'], () => {
+  bs.init({
+    port: process.env.PORT || 3000,
+    open: true,
+    server: {
+      baseDir: global.paths.jsdocs
+    },
+  });
+});
