@@ -9,7 +9,7 @@ export default function ($httpBackend, ApiMocks) {
 
   $httpBackend.whenGET(/\/api\/book\/genres/).respond((method, url) => {
     try {
-      return [200, ApiMocksService.getBookGenres()];
+      return [200, ApiMocks.getBookGenres()];
     } catch (e) {
       return [500, e];
     }

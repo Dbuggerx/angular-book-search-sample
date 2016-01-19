@@ -2,7 +2,7 @@
 
 import $ from 'jquery';
 import angular from 'angular';
-import '../templates';
+import './templates';
 import './config/plugins';
 import routes from './config/routes';
 import httpBackend from './config/http-backend';

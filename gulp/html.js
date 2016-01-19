@@ -10,7 +10,7 @@ import htmlreplace from 'gulp-html-replace';
 
 gulp.task('templates', done => {
   // create empty module in development
-  fs.writeFileSync(path.join(global.paths.src, 'templates.js'),
+  fs.writeFileSync(path.join(global.paths.src, 'js', 'templates.js'),
     'angular.module("templates", []);'
   );
   done();
@@ -29,7 +29,7 @@ gulp.task('build-templates', () => {
       root: 'templates/',
       module: 'templates'
     }))
-    .pipe(gulp.dest(global.paths.src));
+    .pipe(gulp.dest(path.join(global.paths.src, 'js')));
 });
 
 // Build HTML for distribution.
