@@ -1,21 +1,27 @@
-export default function ($q, $http) {
-  'ngInject';
+/**
+ * API configuration.
+ * @module services/api-service
+ */
 
-  let baseUrl = 'http://www.once-api-a-time.com';
+const privates = new WeakMap();
 
-  return {
-    summary: {
-      getOperations(startDate, finalDate) {
-
-        return $http.get(baseUrl + '/summary/operations', {
-            params: {
-              startDate: startDate ? startDate.format('YYYY-MM-DD') : null,
-              finalDate: finalDate ? finalDate.format('YYYY-MM-DD') : null
-            }
-          })
-          .then((response) => response.data);
-      }
-    },
+class ApiService{
+  /**
+  * Wraps the API endpoints with ngResource
+  *
+  * @param {ngResource} - The injected {@link https://docs.angularjs.org/api/ngResource/service/$resource $resource} from AngularJS
+  */
+  constructor($resource){
+    'ngInject';
+    privates.set(this, {
+      $resource,
+      baseUrl: 'http://www.once-upon-api.com'
+    });
   }
 
+  get bookGenres(){
+    return privates.get(this).$resource(privates.get(this).baseUrl + '/api/book/genres');
+  }
 }
+
+export default ApiService;

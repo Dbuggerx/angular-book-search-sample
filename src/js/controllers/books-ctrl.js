@@ -1,7 +1,7 @@
 export default class BooksCtrl {
   /** Controller responsible for the books page. */
-  constructor() {
+  constructor(ApiService) {
     'ngInject';
-    this.title = 'test';
+    this.bookGenres = ApiService.bookGenres.get();
   }
 }

@@ -57,7 +57,7 @@ gulp.task('build-js', ['build-templates'], function () {
 });
 
 // Lint JS.
-gulp.task('lint-js', function () {
+gulp.task('lintjs', function () {
   return gulp.src(global.paths.js)
     .pipe(cache('lintjs'))
     .pipe(jshint())
