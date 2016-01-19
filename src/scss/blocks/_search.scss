@@ -1,7 +1,6 @@
 .search-bar {
   height: 10rem;
-  line-height: 10rem;
-
+  
   &__col {
     @include span-columns(4 of 12);
     @include media($mobile) {
