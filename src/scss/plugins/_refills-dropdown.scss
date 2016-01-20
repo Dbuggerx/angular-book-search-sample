@@ -1,5 +1,4 @@
 .dropdown {
-  $dropdown-color: $base-font-color;
   $dropdown-description-width: 110px;
   $dropdown-border: 1px solid $divider-color;
   $dropdown-description-color: $primary-color-text;
@@ -12,32 +11,31 @@
   $dropdown-distance-from-menu: 35px;
   $dropdown-arrow-top-distance: 0;
 
+  box-sizing: padding-box;
   line-height: $search-control-height;
   vertical-align: middle;
-  box-sizing: padding-box;
 
-  .dropdown-container {
+  &__container {
     @include span-columns(12);
     position: relative;
     text-align: center;
   }
 
-  .dropdown-button {
+  &__button {
     background: $light-bg-color;
     border: $dropdown-border;
     cursor: pointer;
-    font-size: $search-control-font-size;
     padding: 0 ($dropdown-padding * 2.5) 0 ($dropdown-padding / 2);
     position: relative;
     text-align: left;
     width: 100%;
   }
 
-  .dropdown-button:hover {
+  &__button:hover {
     background-color: $dropdown-background-hover;
   }
 
-  .dropdown-button:after {
+  &__button:after {
     color: $accent-color;
     content: "\25BE";
     display: block;
@@ -46,12 +44,11 @@
     top: $dropdown-arrow-top-distance;
   }
 
-  .dropdown-menu {
+  &__menu {
     @include transition (all 0.2s ease-in-out);
     background: $dropdown-background;
     border: $dropdown-border;
     box-shadow: 0 2px 2px transparentize(black, 0.8);
-    color: $dropdown-color;
     cursor: pointer;
     display: none;
     margin: 0;
@@ -66,22 +63,21 @@
     overflow-y: scroll;
   }
 
-  .dropdown-menu li {
+  &__menu-item {
     border-bottom: $dropdown-inner-border;
-    color: $dropdown-color;
     list-style: none;
     padding: $dropdown-padding / 2;
   }
 
-  .dropdown-menu li:hover {
+  &__menu-item:hover {
     background: $dropdown-background-hover;
   }
 
-  .dropdown-menu li:last-child {
+  &__menu-item:last-child {
     border: none;
   }
 
-  .show-menu {
+  &__menu-item--display {
     display: block;
   }
 }

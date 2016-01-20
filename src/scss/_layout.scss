@@ -10,7 +10,6 @@
 
 .grid {
   @include span-columns(12);
-  color: $primary-color-text;
   font-family: 'Roboto';
 
   &__main {

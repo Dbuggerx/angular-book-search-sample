@@ -5,20 +5,20 @@ export default function(){
     link(scope, el) {
       let menu;
       function dropdownButtonClick() {
-        menu.toggleClass('show-menu');
+        menu.toggleClass('dropdown__menu-item--display');
       }
       function itemClick() {
-        menu.removeClass('show-menu');
+        menu.removeClass('dropdown__menu-item--display');
       }
 
-      let button = $('.dropdown-button', el);
-      menu = button.siblings('.dropdown-menu');
-      $('.dropdown-button', el).on('click', dropdownButtonClick);
-      menu.on('click', 'li', itemClick);
+      let button = $('.dropdown__button', el);
+      menu = button.siblings('.dropdown__menu');
+      $('.dropdown__button', el).on('click', dropdownButtonClick);
+      menu.on('click', '.dropdown__menu-item', itemClick);
 
       scope.$on('$destroy', () => {
         button.off('click', dropdownButtonClick);
-        menu.off('click', 'li', itemClick);
+        menu.off('click', '.dropdown__menu-item', itemClick);
         menu = null;
         button = null;
       });

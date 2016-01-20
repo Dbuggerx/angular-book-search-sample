@@ -1,22 +1,13 @@
 @import '../../jspm_packages/bower/bourbon@4.2.6/app/assets/stylesheets/bourbon';
-
 // Neat Settings -- uncomment if using Neat -- must be imported before Neat
 @import '../../jspm_packages/bower/neat@1.7.2/app/assets/stylesheets/neat-helpers';
 // Neat Breakpoints
 $mobile-size:480px;
 $tablet-size:768px;
-
-// Bourbon Neat Breakpoints
 $mobile: new-breakpoint(max-width $mobile-size 4);
 $tablet: new-breakpoint(max-width $tablet-size 8);
-
-
 @import '../../jspm_packages/bower/neat@1.7.2/app/assets/stylesheets/neat';
-
 @import 'bitters/variables';
-$action-color: $light-bg-color;
-$base-border-color: $divider-color;
-
 @import 'bitters/buttons';
 @import 'bitters/forms';
 @import 'bitters/lists';
