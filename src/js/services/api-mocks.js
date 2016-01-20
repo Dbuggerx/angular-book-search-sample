@@ -42,7 +42,12 @@ class ApiMocks {
       'Technology',
       'Teen',
       'Thriller',
-      'Travel'];
+      'Travel'
+    ];
+  }
+
+  getBookCategories() {
+    return ['Fiction', 'Non-Fiction'];
   }
 }
 

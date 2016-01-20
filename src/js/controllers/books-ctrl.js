@@ -3,5 +3,6 @@ export default class BooksCtrl {
   constructor(ApiService) {
     'ngInject';
     this.bookGenres = ApiService.bookGenres.query();
+    this.bookCategories = ApiService.bookCategories.query();
   }
 }

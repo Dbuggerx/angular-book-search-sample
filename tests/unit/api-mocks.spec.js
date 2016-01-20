@@ -11,5 +11,12 @@ describe('ApiMocks', () => {
       expect(mock.getBookGenres().length > 0).toBeTruthy();
     });
   });
-  
+
+  describe('getBookCategories', () => {
+    it('should return results', () => {
+      let mock = new ApiMocks();
+      expect(mock.getBookCategories().length > 0).toBeTruthy();
+    });
+  });
+
 });

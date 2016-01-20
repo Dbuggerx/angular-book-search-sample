@@ -14,4 +14,12 @@ export default function ($httpBackend, ApiMocks) {
       return [500, e];
     }
   });
+
+  $httpBackend.whenGET(/\/api\/book\/categories/).respond((method, url) => {
+    try {
+      return [200, ApiMocks.getBookCategories()];
+    } catch (e) {
+      return [500, e];
+    }
+  });
 }

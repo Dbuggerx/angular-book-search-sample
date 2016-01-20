@@ -7,7 +7,8 @@ describe('BooksCtrl', () => {
   beforeEach(angular.mock.module('BooksChallenge'));
   beforeEach(inject((_$controller_, _$rootScope_, _$httpBackend_) => {
     $httpBackend = _$httpBackend_;
-    $httpBackend.expectGET(/\/api\/book\/genres/).respond(['a', 'b', 'c']);
+    $httpBackend.expectGET(/\/api\/book\/genres/).respond(['genre1', 'genre2', 'genre3']);
+    $httpBackend.expectGET(/\/api\/book\/categories/).respond(['category1', 'category2']);
     $controller = _$controller_;
     $scope = _$rootScope_.$new();
     ctrl = $controller('BooksCtrl', {
@@ -29,6 +30,10 @@ describe('BooksCtrl', () => {
   describe('constructor', () => {
     it('should get book genres', () => {
       expect(ctrl.bookGenres.length).toBe(3);
+    });
+
+    it('should get book categories', () => {
+      expect(ctrl.bookCategories.length).toBe(2);
     });
   });
 

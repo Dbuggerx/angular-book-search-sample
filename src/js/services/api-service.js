@@ -22,6 +22,10 @@ class ApiService{
   get bookGenres(){
     return privates.get(this).$resource(privates.get(this).baseUrl + '/api/book/genres');
   }
+
+  get bookCategories(){
+    return privates.get(this).$resource(privates.get(this).baseUrl + '/api/book/categories');
+  }
 }
 
 export default ApiService;
