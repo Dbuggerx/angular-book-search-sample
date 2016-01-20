@@ -6,9 +6,15 @@
       <div class="searchbar__col">
         <div class="dropdown" data-refills-dropdown>
           <div class="dropdown__container">
-            <div class="dropdown__button">Category</div>
+            <div class="dropdown__button">
+              {{bookSearchParamsCtrl.selectedParams.category}}
+            </div>
             <ul class="dropdown__menu">
-              <li class="dropdown__menu-item" data-ng-repeat="category in booksCtrl.bookCategories">{{category}}</li>
+              <li class="dropdown__menu-item"
+              data-ng-repeat="category in bookSearchParamsCtrl.bookCategories"
+              data-ng-click="bookSearchParamsCtrl.selectedParams.category=category">
+                {{category}}
+              </li>
             </ul>
           </div>
         </div>
@@ -17,9 +23,15 @@
       <div class="searchbar__col">
         <div class="dropdown" data-refills-dropdown>
           <div class="dropdown__container">
-            <div class="dropdown__button">Genre</div>
+            <div class="dropdown__button">
+              {{bookSearchParamsCtrl.selectedParams.genre}}
+            </div>
             <ul class="dropdown__menu">
-              <li class="dropdown__menu-item" data-ng-repeat="genre in booksCtrl.bookGenres">{{genre}}</li>
+              <li class="dropdown__menu-item"
+              data-ng-repeat="genre in bookSearchParamsCtrl.bookGenres"
+              data-ng-click="bookSearchParamsCtrl.selectedParams.genre=genre">
+                {{genre}}
+              </li>
             </ul>
           </div>
         </div>
@@ -27,8 +39,10 @@
 
       <div class="searchbar__col">
         <div class="search-box">
-          <input type="text" class="search-box__input" placeholder="Search" />
-          <div class="icon icon--search search-box__btn"></div>
+          <input type="text" class="search-box__input" placeholder="Search"
+          data-ng-model="bookSearchParamsCtrl.selectedParams.query" />
+          <div class="icon icon--search search-box__btn"
+          data-ng-click="bookSearchParamsCtrl.search()"></div>
         </div>
       </div>
 

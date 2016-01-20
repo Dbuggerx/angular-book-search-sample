@@ -1,8 +1,8 @@
 import '../../js/main';
 
-describe('BooksCtrl', () => {
+describe('BookSearchParamsCtrl', () => {
 
-  let $controller, $scope, $httpBackend, ctrl;
+  let $controller, $scope, $httpBackend, $stateParams, ctrl;
 
   beforeEach(angular.mock.module('BooksChallenge'));
   beforeEach(inject((_$controller_, _$rootScope_, _$httpBackend_) => {
@@ -11,8 +11,10 @@ describe('BooksCtrl', () => {
     $httpBackend.expectGET(/\/api\/book\/categories/).respond(['category1', 'category2']);
     $controller = _$controller_;
     $scope = _$rootScope_.$new();
-    ctrl = $controller('BooksCtrl', {
-      $scope
+    ctrl = $controller('BookSearchParamsCtrl', {
+      $scope,
+      $state: jasmine.createSpyObj('$state', ['go']),
+      $stateParams: {}
     });
     $scope.$apply();
     $httpBackend.flush();

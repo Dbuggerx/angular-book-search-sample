@@ -26,6 +26,10 @@ class ApiService{
   get bookCategories(){
     return privates.get(this).$resource(privates.get(this).baseUrl + '/api/book/categories');
   }
+
+  get bookSearch(){
+    return privates.get(this).$resource(privates.get(this).baseUrl + '/api/book/search');
+  }
 }
 
 export default ApiService;

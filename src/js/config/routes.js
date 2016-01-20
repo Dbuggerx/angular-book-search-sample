@@ -5,18 +5,30 @@ export default function ($stateProvider, $urlRouterProvider) {
     .state('books', {
       abstract: true,
       url: '/books',
-      controller: 'BooksCtrl',
-      controllerAs: 'booksCtrl',
-      templateUrl: 'templates/layout.html',
+      templateUrl: 'templates/books/layout.html',
     })
     .state('books.search', {
-      url: '/search',
+      url: '/search?category&genre&query',
+      params: {
+        category: {
+          value: 'Category',
+          squash: true
+        },
+        genre: {
+          value: 'Genre',
+          squash: true
+        }
+      },
       views: {
         "": {
           templateUrl: 'templates/books/list.html',
+          controller: 'BookSearchResultsCtrl',
+          controllerAs: 'bookSearchResultsCtrl'
         },
         "header": {
           templateUrl: 'templates/books/header-search.html',
+          controller: 'BookSearchParamsCtrl',
+          controllerAs: 'bookSearchParamsCtrl'
         }
       }
     });

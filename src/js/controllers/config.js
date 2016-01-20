@@ -3,7 +3,8 @@
  * @module controllers/config
  */
 import angular from 'angular';
-import BooksCtrl from './books-ctrl';
+import BookSearchParamsCtrl from './book-search-params-ctrl';
+import BookSearchResultsCtrl from './book-search-results-ctrl';
 
 /**
  * Here's where all controllers are configured into the 'BooksChallenge' module
@@ -11,5 +12,6 @@ import BooksCtrl from './books-ctrl';
  */
 export default function () {
   angular.module('BooksChallenge')
-    .controller('BooksCtrl', BooksCtrl);
+    .controller('BookSearchParamsCtrl', BookSearchParamsCtrl)
+    .controller('BookSearchResultsCtrl', BookSearchResultsCtrl);
 }
