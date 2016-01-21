@@ -11,14 +11,27 @@ export default function ($stateProvider, $urlRouterProvider) {
       url: '/search?category&genre&query',
       params: {
         category: {
-          value: 'Category',
           squash: true
         },
         genre: {
-          value: 'Genre',
           squash: true
         }
       },
+      views: {
+        "": {
+          templateUrl: 'templates/books/search-results.html',
+          controller: 'BookSearchResultsCtrl',
+          controllerAs: 'bookSearchResultsCtrl'
+        },
+        "header": {
+          templateUrl: 'templates/books/search-header.html',
+          controller: 'BookSearchParamsCtrl',
+          controllerAs: 'bookSearchParamsCtrl'
+        }
+      }
+    })
+    .state('books.details', {
+      url: '/details/:id',
       views: {
         "": {
           templateUrl: 'templates/books/search-results.html',

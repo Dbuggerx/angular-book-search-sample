@@ -7,7 +7,7 @@
         <div class="dropdown" data-refills-dropdown>
           <div class="dropdown__container">
             <div class="dropdown__button">
-              {{bookSearchParamsCtrl.selectedParams.category}}
+              {{bookSearchParamsCtrl.selectedParams.category || "Category"}}
             </div>
             <ul class="dropdown__menu">
               <li class="dropdown__menu-item"
@@ -24,7 +24,7 @@
         <div class="dropdown" data-refills-dropdown>
           <div class="dropdown__container">
             <div class="dropdown__button">
-              {{bookSearchParamsCtrl.selectedParams.genre}}
+              {{bookSearchParamsCtrl.selectedParams.genre || "Genre"}}
             </div>
             <ul class="dropdown__menu">
               <li class="dropdown__menu-item"

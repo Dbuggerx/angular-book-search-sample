@@ -44,6 +44,7 @@ module.exports = function (config) {
       loadFiles: ['./tests/unit/**/*.spec.js'],
       serveFiles: [
         './src/js/**/*.js',
+        './src/js/**/*.json',
         './src/**/*.html',
         './src/**/*.css'
       ],

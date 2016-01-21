@@ -22,4 +22,20 @@ export default function ($httpBackend, ApiMocks) {
       return [500, e];
     }
   });
+
+  $httpBackend.whenGET(/\/api\/book\/search?\?(.+\=.+)+$/).respond((method, url) => {
+    try {
+      let params = /\/api\/book\/search?\?(.+\=.+)+$/
+        .exec(url)[1]
+        .split('&')
+        .map((pair) => pair.split('='))
+        .reduce((obj, pair) => {
+          obj[pair[0]] = pair[1];
+          return obj;
+        }, {});
+      return [200, ApiMocks.getPagedBooksSearch(params)];
+    } catch (e) {
+      return [500, e];
+    }
+  });
 }
