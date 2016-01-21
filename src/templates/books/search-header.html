@@ -7,12 +7,12 @@
         <div class="dropdown" data-refills-dropdown>
           <div class="dropdown__container">
             <div class="dropdown__button">
-              {{bookSearchParamsCtrl.selectedParams.category || "Category"}}
+              {{bookSearchParamsCtrl.selectedCategory}}
             </div>
             <ul class="dropdown__menu">
               <li class="dropdown__menu-item"
               data-ng-repeat="category in bookSearchParamsCtrl.bookCategories"
-              data-ng-click="bookSearchParamsCtrl.selectedParams.category=category">
+              data-ng-click="bookSearchParamsCtrl.selectedCategory=category">
                 {{category}}
               </li>
             </ul>
@@ -24,12 +24,12 @@
         <div class="dropdown" data-refills-dropdown>
           <div class="dropdown__container">
             <div class="dropdown__button">
-              {{bookSearchParamsCtrl.selectedParams.genre || "Genre"}}
+              {{bookSearchParamsCtrl.selectedGenre}}
             </div>
             <ul class="dropdown__menu">
               <li class="dropdown__menu-item"
               data-ng-repeat="genre in bookSearchParamsCtrl.bookGenres"
-              data-ng-click="bookSearchParamsCtrl.selectedParams.genre=genre">
+              data-ng-click="bookSearchParamsCtrl.selectedGenre=genre">
                 {{genre}}
               </li>
             </ul>
@@ -40,7 +40,7 @@
       <div class="searchbar__col">
         <div class="search-box">
           <input type="text" class="search-box__input" placeholder="Search"
-          data-ng-model="bookSearchParamsCtrl.selectedParams.query" />
+          data-ng-model="bookSearchParamsCtrl.selectedQuery" />
           <div class="icon icon--search search-box__btn"
           data-ng-click="bookSearchParamsCtrl.search()"></div>
         </div>

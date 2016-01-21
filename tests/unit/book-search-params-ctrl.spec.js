@@ -33,23 +33,28 @@ describe('BookSearchParamsCtrl', () => {
 
   describe('constructor', () => {
     it('should get book genres', () => {
-      expect(ctrl.bookGenres.length).toBe(3);
+      expect(ctrl.bookGenres.length).toBe(4);
     });
 
     it('should get book categories', () => {
-      expect(ctrl.bookCategories.length).toBe(2);
+      expect(ctrl.bookCategories.length).toBe(3);
     });
 
-    it('should watch the selected genre and call search', () => {
+  });
+
+  describe('selectedGenre', () => {
+    it('should call "search" when changed', () => {
       spyOn(ctrl, 'search');
-      ctrl.selectedParams.genre = 'test';
+      ctrl.selectedGenre = 'test';
       $scope.$apply();
       expect(ctrl.search.calls.count()).toBe(1);
     });
+  });
 
-    it('should watch the selected category and call search', () => {
+  describe('selectedCategory', () => {
+    it('should call "search" when changed', () => {
       spyOn(ctrl, 'search');
-      ctrl.selectedParams.category = 'test';
+      ctrl.selectedCategory = 'test';
       $scope.$apply();
       expect(ctrl.search.calls.count()).toBe(1);
     });
@@ -57,15 +62,15 @@ describe('BookSearchParamsCtrl', () => {
 
   describe('search', () => {
     it('should send correct parameters', () => {
-      ctrl.selectedParams.genre = 'genre test';
-      ctrl.selectedParams.category = 'category test';
-      ctrl.selectedParams.query = 'query test';
+      ctrl.selectedQuery = 'query test';
+      ctrl.selectedGenre = 'genre test';
+      ctrl.selectedCategory = 'category test';
       $scope.$apply();
-      expect($stateSpy.go).toHaveBeenCalledWith('books.search', {
+      expect($stateSpy.go.calls.mostRecent().args).toEqual(['books.search', {
         genre: 'genre test',
         category: 'category test',
         query: 'query test'
-      });
+      }]);
     });
   });
 
