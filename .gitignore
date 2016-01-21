@@ -4,4 +4,4 @@ jspm_packages
 dist
 src/css
 docs
-src/templates.js
+src/js/templates.js

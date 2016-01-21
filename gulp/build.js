@@ -13,5 +13,5 @@ gulp.task('clean', done => {
 
 // One build task to rule them all!
 gulp.task('build', done => {
-  runSeq('clean', ['build-sass', 'build-html', 'build-js'], done);
+  runSeq('clean', ['build-css', 'build-html', 'build-js'], done);
 });

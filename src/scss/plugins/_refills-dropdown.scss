@@ -57,7 +57,7 @@
     position: absolute;
     right: 0;
     top: $dropdown-distance-from-menu;
-    width: 228px;
+    width: inherit;
     z-index: 99999;
     max-height: 250px;
     overflow-y: scroll;
