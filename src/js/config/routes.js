@@ -21,12 +21,12 @@ export default function ($stateProvider, $urlRouterProvider) {
       },
       views: {
         "": {
-          templateUrl: 'templates/books/list.html',
+          templateUrl: 'templates/books/search-results.html',
           controller: 'BookSearchResultsCtrl',
           controllerAs: 'bookSearchResultsCtrl'
         },
         "header": {
-          templateUrl: 'templates/books/header-search.html',
+          templateUrl: 'templates/books/search-header.html',
           controller: 'BookSearchParamsCtrl',
           controllerAs: 'bookSearchParamsCtrl'
         }
