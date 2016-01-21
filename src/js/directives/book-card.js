@@ -7,8 +7,9 @@ export default function () {
     },
     controller($scope, $state) {
       'ngInject';
+      this.book = $scope.book;
       this.gotoDetails = () =>{
-        $state.go('books.details', {id: $scope.book.id});
+        $state.go('books.details', {id: this.book});
       };
     },
     controllerAs: 'bookCardCtrl'

@@ -1,20 +1,22 @@
 .book-card {
   $spacing: .8em;
   $padding: 1em;
-
   @include span-columns(3);
   @include omega(4n);
   @include transition(all .15s ease-out);
+
   @include media($tablet) {
     @include span-columns(6 of 12);
     @include omega(2n);
   }
+
   @include media($mobile) {
     @include span-columns(12 of 12);
   }
 
   background-color: $light-bg-color;
   border: solid 1px $divider-color;
+  cursor: pointer;
   font-size: .8em;
   margin-bottom: $spacing * 2;
   margin-top: $spacing;
@@ -39,7 +41,7 @@
     text-align: center;
   }
 
-  &__text-container{
+  &__text-container {
     @include span-columns(12);
     background-color: $card-background-color;
     padding: $padding;
@@ -47,13 +49,16 @@
 
   &__title {
     @extend %border-bottom-divider;
+    align-items: center;
+    display: flex;
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: $spacing;
+    min-height: 60px;
   }
 
   &__author {
-
+    margin-bottom: $spacing;
   }
 
   &__likes {

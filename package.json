@@ -20,7 +20,7 @@
   "license": "ISC",
   "jspm": {
     "dependencies": {
-      "angular": "bower:angular@^1.4.8",
+      "angular": "bower:angular@^1.4.9",
       "angular-mocks": "bower:angular-mocks@^1.4.8",
       "angular-resource": "npm:angular-resource@^1.4.8",
       "angular-ui-router": "bower:angular-ui-router@^0.2.15",
@@ -30,6 +30,7 @@
       "json": "github:systemjs/plugin-json@^0.1.0",
       "mdi": "npm:mdi@^1.4.57",
       "neat": "bower:neat@^1.7.2",
+      "ngInfiniteScroll": "bower:ngInfiniteScroll@^1.2.2",
       "normalize-css": "bower:normalize-css@^3.0.3",
       "roboto-fontface": "bower:roboto-fontface@^0.4.3"
     },

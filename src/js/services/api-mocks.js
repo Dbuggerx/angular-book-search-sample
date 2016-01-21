@@ -12,7 +12,7 @@ export default class ApiMocks {
   }
 
   static get pageSize(){
-    return 8;
+    return 4;
   }
 
   static getJsonData(){
@@ -20,19 +20,24 @@ export default class ApiMocks {
   }
 
   getPagedBooksSearch(params){
+    let currentIndex = (params.page-1||0) * this.constructor.pageSize;
     return (this.paramsHaveValues(params) ? this.filterBookResults(params) : this.constructor.getJsonData())
-      .slice((params.page-1||0) * this.constructor.pageSize, this.constructor.pageSize);
+      .slice(currentIndex, currentIndex + this.constructor.pageSize);
   }
 
   paramsHaveValues(params){
-    return (params.category || params.genre || params.category);
+    return (params.category || params.genre || params.category) ? true : false;
   }
 
   filterBookResults(params){
     return this.constructor.getJsonData().filter(book =>
-      (params.category ? book.genre.category.toLowerCase() === params.category.toLowerCase() : true) &&
-      (params.genre ? book.genre.name.toLowerCase() === params.genre.toLowerCase() : true)
+      (params.category ? this.normalizeString(book.genre.category) === this.normalizeString(params.category) : true) &&
+      (params.genre ? this.normalizeString(book.genre.name) === this.normalizeString(params.genre) : true)
     );
+  }
+
+  normalizeString(str){
+    return str.toLowerCase().replace(/\+/g, ' ');
   }
 
   getBookGenres() {
