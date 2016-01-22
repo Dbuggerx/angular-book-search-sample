@@ -36,30 +36,35 @@ describe('ApiMocks', () => {
   });
 
   const bookMocks = [{
+    'id':'b841267346',
     'genre': {
       'category': 'Non-Fiction',
       'name': 'History'
     },
-    "author": {
-      "avatar": "http://lorempixel.com/250/250/",
-      "name": "JRR Tolkein"
+    'author': {
+      'avatar': 'http://lorempixel.com/250/250/',
+      'name': 'JRR Tolkein'
     },
-    "name": "The Lord of the Rings"
+    'name': 'The Lord of the Rings'
   }, {
+    'id':'b284012025',
     'genre': {
       'category': 'Fiction',
       'name': 'Arts'
     },
-    "author": {
-      "avatar": "http://lorempixel.com/250/250/",
-      "name": "Harper Lee"
+    'author': {
+      'avatar': 'http://lorempixel.com/250/250/',
+      'name': 'Harper Lee'
     },
-    "name": "To Kill a Mockingbird"
+    'name': 'To Kill a Mockingbird'
   }];
 
   describe('filterBookResults', () => {
-    it('should filter books by category', () => {
+    beforeEach(() => {
       spyOn(ApiMocks, 'getJsonData').and.returnValue(bookMocks);
+    });
+
+    it('should filter books by category', () => {
       let result1 = apiMock.filterBookResults({
         'category': 'Non-Fiction'
       });
@@ -74,7 +79,6 @@ describe('ApiMocks', () => {
     });
 
     it('should filter books by genre', () => {
-      spyOn(ApiMocks, 'getJsonData').and.returnValue(bookMocks);
       let result1 = apiMock.filterBookResults({
         'genre': 'History'
       });
@@ -89,7 +93,6 @@ describe('ApiMocks', () => {
     });
 
     it('should filter books by the author\'s name', () => {
-      spyOn(ApiMocks, 'getJsonData').and.returnValue(bookMocks);
       let result1 = apiMock.filterBookResults({
         'query': 'Tolkein'
       });
@@ -104,7 +107,6 @@ describe('ApiMocks', () => {
     });
 
     it('should filter books by name', () => {
-      spyOn(ApiMocks, 'getJsonData').and.returnValue(bookMocks);
       let result1 = apiMock.filterBookResults({
         'query': 'Rings'
       });
@@ -116,6 +118,17 @@ describe('ApiMocks', () => {
       });
       expect(result2.length).toBe(1);
       expect(result2[0].name).toBe('To Kill a Mockingbird');
+    });
+  });
+
+  describe('getBookById', () => {
+    beforeEach(() => {
+      spyOn(ApiMocks, 'getJsonData').and.returnValue(bookMocks);
+    });
+
+    it('should return the corresponding book', () => {
+      let book = apiMock.getBookById('b841267346');
+      expect(book.id).toBe('b841267346');
     });
   });
 
@@ -150,17 +163,17 @@ describe('ApiMocks', () => {
     });
   });
 
-  describe('bookPropMatchesExactVal', () => {
+  describe('bookPropEqualsVal', () => {
     it('returns true when the value is not given', () => {
-      expect(apiMock.bookPropMatchesExactVal('prop')).toBeTruthy();
+      expect(apiMock.bookPropEqualsVal('prop')).toBeTruthy();
     });
 
     it('returns true when the values are equal', () => {
-      expect(apiMock.bookPropMatchesExactVal('test', 'TEST')).toBeTruthy();
+      expect(apiMock.bookPropEqualsVal('test', 'TEST')).toBeTruthy();
     });
 
     it('returns false when the values are not equal', () => {
-      expect(apiMock.bookPropMatchesExactVal('test', 'testing')).toBeFalsy();
+      expect(apiMock.bookPropEqualsVal('test', 'testing')).toBeFalsy();
     });
   });
 

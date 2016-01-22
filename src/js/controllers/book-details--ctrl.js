@@ -1,14 +1,8 @@
-const privates = new WeakMap();
-
 export default class BookDetailsCtrl {
   /** Controller responsible for the book details. */
-  constructor(ApiService, $state) {
+  constructor(ApiService, $stateParams) {
     'ngInject';
-    privates.set(this, {
-      $state
-    });
-
-
+    this.bookData = ApiService.book.get({id: $stateParams.id});
   }
 
 }

@@ -30,4 +30,8 @@ export default class ApiService{
   get bookSearch(){
     return privates.get(this).$resource(privates.get(this).baseUrl + '/api/book/search');
   }
+
+  get book(){
+    return privates.get(this).$resource(privates.get(this).baseUrl + '/api/book/:id', {id:'@id'});
+  }
 }

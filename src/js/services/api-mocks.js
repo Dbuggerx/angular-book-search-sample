@@ -22,6 +22,17 @@ export default class ApiMocks {
   }
 
   /**
+   * Returns a book by id
+   * @param {string} id - The desired book id
+   * @return {obj} - The corresponding book, or undefined
+   */
+  getBookById(id){
+    for(let book of this.constructor.getJsonData())
+      if(this.bookPropEqualsVal(book.id, id))
+        return book;
+  }
+
+  /**
    * Searchs by the given parameters, and returns a page of results
    * @param {obj} params - An object containing the search parameters
    * @return {array} - A page of filtered books
@@ -47,8 +58,8 @@ export default class ApiMocks {
    */
   filterBookResults(params) {
     return this.constructor.getJsonData().filter(book =>
-      this.bookPropMatchesExactVal(book.genre.category, params.category) &&
-      this.bookPropMatchesExactVal(book.genre.name, params.genre) &&
+      this.bookPropEqualsVal(book.genre.category, params.category) &&
+      this.bookPropEqualsVal(book.genre.name, params.genre) &&
       (this.bookPropContainsVal(book.author.name, params.query) ||
       this.bookPropContainsVal(book.name, params.query))
     );
@@ -60,7 +71,7 @@ export default class ApiMocks {
    * @param {string} val - The value to search.
    * @return {bool} - True if val is null, otherwise the match result
    */
-  bookPropMatchesExactVal(bookProp, val) {
+  bookPropEqualsVal(bookProp, val) {
     return val ? this.normalizeString(bookProp) === this.normalizeString(val) : true;
   }
 

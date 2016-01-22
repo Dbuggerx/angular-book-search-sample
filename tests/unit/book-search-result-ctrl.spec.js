@@ -14,7 +14,6 @@ describe('BookSearchResultsCtrl', () => {
   beforeEach(angular.mock.module('BooksChallenge'));
   beforeEach(inject((_$controller_, _$rootScope_, _$httpBackend_) => {
     $httpBackend = _$httpBackend_;
-    // $httpBackend.expectGET(/\/api\/book\/search?\?(.+\=.+)+$/).respond(['book1', 'book2', 'book3']);
     $controller = _$controller_;
     $scope = _$rootScope_.$new();
   }));
