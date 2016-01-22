@@ -5,10 +5,10 @@
 
 const privates = new WeakMap();
 
-class ApiService{
+export default class ApiService{
   /**
   * Wraps the API endpoints with ngResource
-  *
+  * @memberof Services
   * @param {ngResource} - The injected {@link https://docs.angularjs.org/api/ngResource/service/$resource $resource} from AngularJS
   */
   constructor($resource){
@@ -31,5 +31,3 @@ class ApiService{
     return privates.get(this).$resource(privates.get(this).baseUrl + '/api/book/search');
   }
 }
-
-export default ApiService;

@@ -2,6 +2,7 @@
   background-color: $primary-color;
   font-family: 'Roboto';
   line-height: 4rem;
+  padding: 0 $side-spacing;
 
   &--dark {
     background-color: $primary-color-dark;
@@ -9,8 +10,8 @@
   }
 
   &__logo {
-    font-family: 'Roboto-Bold';
     color: $accent-text-color;
+    font-family: 'Roboto-Bold';
   }
 
   &__title {

@@ -1,43 +1,86 @@
-/**
- * API mocks
- * @module services/api-mocks
- */
-
 /** Loading the books information file using JSPM's JSON loader plugin */
 import jsonData from './books.json!json';
 
 export default class ApiMocks {
-  /** Used for simulating API data results */
-  constructor() {
+  /** Class used for simulating API data results */
+  constructor() {}
+
+  /**
+   * Returns the amount of books to return on each response
+   * @return {int}
+   */
+  static get pageSize() {
+    return 8;
   }
 
-  static get pageSize(){
-    return 4;
-  }
-
-  static getJsonData(){
+  /**
+   * Returns the books data
+   * @return {array}
+   */
+  static getJsonData() {
     return jsonData;
   }
 
-  getPagedBooksSearch(params){
-    let currentIndex = (params.page-1||0) * this.constructor.pageSize;
+  /**
+   * Searchs by the given parameters, and returns a page of results
+   * @param {obj} params - An object containing the search parameters
+   * @return {array} - A page of filtered books
+   */
+  getPagedBooksSearch(params) {
+    let currentIndex = (params.page - 1 || 0) * this.constructor.pageSize;
     return (this.paramsHaveValues(params) ? this.filterBookResults(params) : this.constructor.getJsonData())
       .slice(currentIndex, currentIndex + this.constructor.pageSize);
   }
 
-  paramsHaveValues(params){
-    return (params.category || params.genre || params.category) ? true : false;
+  /**
+   * Checks if any parameter is given
+   * @param {obj} params - An object containing the parameters
+   * @return {array} - The filtered books
+   */
+  paramsHaveValues(params) {
+    return (params.category || params.genre || params.query) ? true : false;
   }
 
-  filterBookResults(params){
+  /**
+   * Filters the book data by the given parameters
+   * @return {array} - The filtered books
+   */
+  filterBookResults(params) {
     return this.constructor.getJsonData().filter(book =>
-      (params.category ? this.normalizeString(book.genre.category) === this.normalizeString(params.category) : true) &&
-      (params.genre ? this.normalizeString(book.genre.name) === this.normalizeString(params.genre) : true)
+      this.bookPropMatchesExactVal(book.genre.category, params.category) &&
+      this.bookPropMatchesExactVal(book.genre.name, params.genre) &&
+      (this.bookPropContainsVal(book.author.name, params.query) ||
+      this.bookPropContainsVal(book.name, params.query))
     );
   }
 
-  normalizeString(str){
-    return str.toLowerCase().replace(/\+/g, ' ');
+  /**
+   * Matches the exact value, when value is given.
+   * @param {string} bookProp - The book property.
+   * @param {string} val - The value to search.
+   * @return {bool} - True if val is null, otherwise the match result
+   */
+  bookPropMatchesExactVal(bookProp, val) {
+    return val ? this.normalizeString(bookProp) === this.normalizeString(val) : true;
+  }
+
+  /**
+   * Checks if the property contains the given value.
+   * @param {string} bookProp - The book property.
+   * @param {string} val - The value to search.
+   * @return {bool} - True if val is null, otherwise the search result
+   */
+  bookPropContainsVal(bookProp, val) {
+    return val ? this.normalizeString(bookProp).indexOf(this.normalizeString(val)) !== -1 : true;
+  }
+
+  /**
+   * Normalizes the string, making it useful for comparisons
+   * @param {string} str - The string to normalize
+   * @return {string} - The normalized string
+   */
+  normalizeString(str) {
+    return decodeURIComponent(str.toLowerCase().replace(/\+/g, ' ')).trim();
   }
 
   getBookGenres() {

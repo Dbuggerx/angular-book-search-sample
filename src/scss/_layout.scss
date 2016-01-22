@@ -13,8 +13,8 @@
   font-family: 'Roboto';
 
   &__main {
-    margin-top: 25px;
+    margin-top: $side-spacing;
     min-height: 70%;
-    padding: 0 25px;
+    padding: 0 $side-spacing;
   }
 }
