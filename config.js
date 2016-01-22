@@ -27,6 +27,7 @@ System.config({
     "jquery": "bower:jquery@2.2.0",
     "json": "github:systemjs/plugin-json@0.1.0",
     "mdi": "npm:mdi@1.4.57",
+    "moment": "bower:moment@2.11.1",
     "neat": "bower:neat@1.7.2",
     "ngInfiniteScroll": "bower:ngInfiniteScroll@1.2.2",
     "normalize-css": "bower:normalize-css@3.0.3",

@@ -15,9 +15,14 @@
   }
 
   &__title {
-    @include span-columns(12 of 12);
     font-family: 'Roboto-Medium';
     font-size: 2rem;
     line-height: 4rem;
+  }
+
+  &__back {
+    cursor: pointer;
+    float: left;
+    margin-right: 15px;
   }
 }

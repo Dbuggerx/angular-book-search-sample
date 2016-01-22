@@ -14,4 +14,8 @@
   &--search::before {
     @include icon('magnify');
   }
+
+  &--back::before {
+    @include icon('arrow-left');
+  }
 }
