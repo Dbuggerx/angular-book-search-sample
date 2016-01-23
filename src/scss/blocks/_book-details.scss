@@ -1,0 +1,15 @@
+.book-details {
+  &__header {
+    background-color: $divider-color;
+  }
+
+  &__footer {
+    background-color: $divider-color;
+  }
+
+  &__title {
+    font-family: 'Roboto-Bold';
+    font-size: 2rem;
+    line-height: 4rem;
+  }
+}

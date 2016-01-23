@@ -3,11 +3,11 @@
 // Copyright 2013-2015 thoughtbot, inc.
 // MIT License
 
-@import "variables";
-
+@import '../../jspm_packages/bower/bourbon@4.2.6/app/assets/stylesheets/bourbon';
 // Neat Settings -- uncomment if using Neat -- must be imported before Neat
-// @import "grid-settings";
-
+@import "grid-settings";
+@import '../../jspm_packages/bower/neat@1.7.2/app/assets/stylesheets/neat';
+@import "variables";
 @import "buttons";
 @import "forms";
 @import "lists";

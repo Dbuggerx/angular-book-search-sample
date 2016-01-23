@@ -27,10 +27,6 @@ describe('BookSearchParamsCtrl', () => {
     $httpBackend.verifyNoOutstandingRequest();
   });
 
-  it('should be defined', () => {
-    expect(ctrl).toBeDefined();
-  });
-
   describe('constructor', () => {
     it('should get book genres', () => {
       expect(ctrl.bookGenres.length).toBe(4);

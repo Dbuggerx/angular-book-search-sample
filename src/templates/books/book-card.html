@@ -1,6 +1,6 @@
 <article data-ui-sref="books.details({id: bookCardCtrl.book.id})">
-  <img src="http://lorempixel.com/500/700/" class="book-card__cover">
-  <div class="book-card__text-container">
+  <img ng-src="{{bookCardCtrl.book.cover}}" class="book-card__cover" alt="Loading book cover...">
+  <div class="book-card__info-container">
     <header class="book-card__title">
       {{bookCardCtrl.book.name}}
     </header>

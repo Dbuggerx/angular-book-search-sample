@@ -1,14 +1,15 @@
 .icon {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  vertical-align: middle;
 
   &--heart::before {
-    @include icon('heart-outline');
-    color: $heart-icon-color;
+    @include icon('heart');
+    color: $accent-color;
   }
 
   &--calendar::before {
     @include icon('calendar-clock');
-    color: $icon-color;
+    color: $accent-color;
   }
 
   &--search::before {
@@ -17,5 +18,11 @@
 
   &--back::before {
     @include icon('arrow-left');
+  }
+
+  &--info::before {
+    @include icon('book-open-variant');
+    font-size: 1.2rem;
+    color: $accent-text-color;
   }
 }

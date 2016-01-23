@@ -7,10 +7,6 @@ describe('ApiMocks', () => {
     apiMock = new ApiMocks();
   });
 
-  it('should be defined', () => {
-    expect(ApiMocks).toBeDefined();
-  });
-
   describe('getBookGenres', () => {
     it('should return results', () => {
       expect(apiMock.getBookGenres().length > 0).toBeTruthy();

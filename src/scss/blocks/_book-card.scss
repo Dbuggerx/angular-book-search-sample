@@ -1,71 +1,79 @@
 .book-card {
+  $card-background-color: #F6F6F6;
   $spacing: .8em;
   $padding: 1em;
+
+  %border-bottom-divider {
+    border-bottom: 1px solid $divider-color;
+    margin-bottom: $spacing;
+    padding-bottom: $spacing;
+  }
+
   @include span-columns(3);
   @include omega(4n);
   @include transition(all .15s ease-out);
-
   @include media($tablet) {
     @include span-columns(6 of 12);
     @include omega(2n);
   }
-
   @include media($mobile) {
     @include span-columns(12 of 12);
   }
 
   background-color: $light-bg-color;
   border: solid 1px $divider-color;
+  border-radius: 8px;
   cursor: pointer;
   font-size: .8em;
   margin-bottom: $spacing * 2;
   margin-top: $spacing;
   overflow: hidden;
-
-  %border-bottom-divider {
-    border-bottom: 1px solid $divider-color;
-    margin-bottom: $spacing;
-  }
+  box-shadow: 0 6px 10px -5px darken($divider-color, 30%);
 
   &:hover {
-    @include transform(scale(1.08));
-    box-shadow: 0 22px 12px -10px darken($divider-color, 10%);
+    @include transform(scale(1.04));
+    box-shadow: 0 30px 25px -30px darken($divider-color, 30%);
   }
 
   &__cover {
-    display: block;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
     text-align: center;
+    background-color: $divider-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
   }
 
-  &__text-container {
+  &__info-container {
     @include span-columns(12);
     background-color: $card-background-color;
     padding: $padding / 2 $padding;
   }
 
   &__title {
-    @extend %border-bottom-divider;
-    align-items: center;
+    color: $accent-color;
     display: flex;
-    font-family: 'Roboto-Medium';
+    align-items: center;
+    font-family: 'Roboto-Bold';
     font-size: 1.2em;
-    margin-bottom: $spacing;
     min-height: 50px;
   }
 
   &__author {
-    margin-bottom: $spacing;
+    @extend %border-bottom-divider;
   }
 
   &__likes {
     @include span-columns(6);
+    color: $secondary-text-color;
   }
 
   &__date {
     @include span-columns(6);
+    color: $secondary-text-color;
     text-align: right;
   }
 }

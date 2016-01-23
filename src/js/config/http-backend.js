@@ -38,4 +38,14 @@ export default function ($httpBackend, ApiMocks) {
       return [500, e];
     }
   });
+
+  $httpBackend.whenGET(/\/api\/book\/.+$/).respond((method, url) => {
+    try {
+      let id = /\/api\/book\/(.+)$/.exec(url)[1];
+      return [200, ApiMocks.getBookById(id)];
+    } catch (e) {
+      return [500, e];
+    }
+  });
+
 }
