@@ -7,12 +7,7 @@ export default function () {
     scope: {
       book: '='
     },
-    controller($scope, $state) {
-      'ngInject';
-      this.book = $scope.book;
-      this.publishedDateDiff = moment.duration(moment().diff(this.book.published)).humanize();      
-      this.gotoDetails = () => $state.go('books.details', {id: this.book});
-    },
+    controller: 'BookCardCtrl',
     controllerAs: 'bookCardCtrl'
   };
 }

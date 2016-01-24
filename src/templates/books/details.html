@@ -1,13 +1,48 @@
-<article class="grid book-details">
-  <header class="grid__row book-details__header">
-    <h1 class="book-details__author">
-      {{bookDetailsCtrl.bookData.name}}
-    </h1>
+<main class="grid">
+  <header>
+    <div class="navbar navbar--dark">
+      <div class="container">
+        <span class="navbar__logo">
+          Discover Section Challenge
+        </span>
+      </div>
+    </div>
+    <div class="navbar navbar--large">
+      <section class="container">
+        <div class="navbar__back" data-ui-sref="search" title="Back">
+          <span class="icon icon--back"></span>
+        </div>
+        Book details
+      </section>
+    </div>
   </header>
-  <div class="book-details__content">
-    Content
-  </div>
-  <footer class="grid__row book-details__footer">
-    Footer!
-  </footer>
-</article>
+  <section class="grid grid--side-padding">
+    <article class="container book-details">
+      <header class="book-details__header">
+          <h1 class="book-details__title">
+            {{bookDetailsCtrl.bookData.name}}
+          </h1>
+          <div class="book-details__author">
+            by {{bookDetailsCtrl.bookData.author.name}}
+          </div>
+          <div class="book-details__stats">
+            <span>
+              <span class="icon icon--heart"></span>
+              {{bookDetailsCtrl.bookData.likes}} Likes
+            </span>
+            <span>
+              <span class="icon icon--calendar"></span>
+              {{bookDetailsCtrl.bookData.relativePublishedDate}} ago
+            </span>
+          </div>
+        </div>
+      </header>
+      <div class="book-details__content">
+        Content
+      </div>
+      <footer class="book-details__footer">
+        Footer!
+      </footer>
+    </article>
+  </section>
+</main>

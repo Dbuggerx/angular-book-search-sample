@@ -62,7 +62,7 @@ describe('BookSearchParamsCtrl', () => {
       ctrl.selectedGenre = 'genre test';
       ctrl.selectedCategory = 'category test';
       $scope.$apply();
-      expect($stateSpy.go.calls.mostRecent().args).toEqual(['books.search', {
+      expect($stateSpy.go.calls.mostRecent().args).toEqual(['search', {
         genre: 'genre test',
         category: 'category test',
         query: 'query test'

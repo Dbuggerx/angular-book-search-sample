@@ -1,6 +1,6 @@
 .book-card {
   @extend %card;
-  
+
   $padding: 1em;
 
   @include span-columns(3);
@@ -43,16 +43,15 @@
   }
 
   &__title {
+    @extend %flex-align-center;
     color: $accent-color;
-    display: flex;
-    align-items: center;
     font-family: 'Roboto-Bold';
     font-size: 1.2em;
     min-height: 50px;
   }
 
   &__author {
-    @extend %border-bottom-divider;
+    @include border-bottom-divider($small-spacing);
   }
 
   &__likes {

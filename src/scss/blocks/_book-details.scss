@@ -1,28 +1,64 @@
 .book-details {
   @extend %card;
+  $title-height: 6rem;
+  background-color: $primary-bg-color;
+  position: relative;
+  top: -$title-height;
+  margin: auto;
+
+  %title-text {
+    @include media($tablet) {
+      @include span-columns(12 of 12);
+      line-height: $title-height / 2;
+    }
+    line-height: $title-height;
+  }
 
   &__header {
-    background-color: $primary-color;
-    color: $accent-text-color;
-    padding: $base-spacing;
+    // @extend %flex-align-center;
+    @include border-bottom-divider(0);
+    @include span-columns(12);
+    @include media($tablet) {
+      background: green;
+    }
+
+    padding: 0 $base-spacing;
+    line-height: $title-height;
+
+  }
+
+  &__title {
+    @extend %title-text;
+    @include span-columns(9 of 12);
+    @include media($tablet) {
+      font-size: 1rem;
+    }
+    @include media($mobile) {
+      font-size: .8rem;
+    }
+    font-size: 1.5rem;
+  }
+
+  &__stats {
+    @extend %title-text;
+    @include span-columns(9 of 12);
+    @include media($tablet) {
+      font-size: 1rem;
+    }
+    @include media($mobile) {
+      font-size: .8rem;
+    }
+    font-size: 1.5rem;
   }
 
   &__author {
-    font-size: 2rem;
-  }
-
-  &__content {
-    background-color: $primary-bg-color;
-    padding: $base-spacing;
+    @extend %title-text;
+    @include span-columns(3 of 12);
+    font-size: .8rem;
   }
 
   &__footer {
     padding: $base-spacing;
   }
 
-  &__title {
-    font-family: 'Roboto-Bold';
-    font-size: 2rem;
-    line-height: 4rem;
-  }
 }

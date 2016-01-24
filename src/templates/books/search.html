@@ -1,0 +1,21 @@
+<main class="grid">
+  <header>
+    <div class="navbar navbar--dark">
+      <div class="container">
+        <span class="navbar__logo">
+          Discover Section Challenge
+        </span>
+      </div>
+    </div>
+    <div data-ui-view="header"></div>
+  </header>
+  <section class="grid__main">
+    <article class="container" data-infinite-scroll="bookSearchResultsCtrl.fetchNextPage()"
+    data-infinite-scroll-disabled="bookSearchResultsCtrl.noMoreResults"
+    data-infinite-scroll-immediate-check="false"
+    data-infinite-scroll-distance="0">
+      <book-card class="book-card" data-ng-repeat="book in bookSearchResultsCtrl.results" data-book="book">
+      </book-card>
+    </article>
+  </section>
+</main>

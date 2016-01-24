@@ -1,0 +1,5 @@
+@mixin border-bottom-divider ($spacing) {
+  border-bottom: 1px solid $divider-color;
+  margin-bottom: $spacing;
+  padding-bottom: $spacing;
+}

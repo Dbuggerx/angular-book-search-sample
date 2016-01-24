@@ -10,7 +10,7 @@ import configServices from './services/config';
 import configControllers from './controllers/config';
 import configDirectives from './directives/config';
 
-/** BooksChallenge' module definition */
+/** BooksChallenge' main module definition */
 let app = angular.module('BooksChallenge', ['templates', 'ui.router',
   'ngMockE2E', 'ngResource', 'infinite-scroll']);
 

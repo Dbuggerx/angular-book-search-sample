@@ -1,13 +1,17 @@
+/**
+ * @module config/routes
+ */
+
+/**
+ * Routes Configuration
+ * @param  {$stateProvider} $stateProvider
+ * @param  {$urlRouterProvider} $urlRouterProvider
+ */
 export default function ($stateProvider, $urlRouterProvider) {
   'ngInject';
 
   $stateProvider
-    .state('books', {
-      abstract: true,
-      url: '/books',
-      templateUrl: 'templates/books/layout.html',
-    })
-    .state('books.search', {
+    .state('search', {
       url: '/search?category&genre&query',
       params: {
         category: {
@@ -19,32 +23,27 @@ export default function ($stateProvider, $urlRouterProvider) {
       },
       views: {
         "": {
-          templateUrl: 'templates/books/search-results.html',
+          templateUrl: 'templates/books/search.html',
           controller: 'BookSearchResultsCtrl',
           controllerAs: 'bookSearchResultsCtrl'
         },
-        "header": {
+        "header@search": {
           templateUrl: 'templates/books/search-header.html',
           controller: 'BookSearchParamsCtrl',
           controllerAs: 'bookSearchParamsCtrl'
         }
       }
     })
-    .state('books.details', {
+    .state('details', {
       url: '/details/:id',
       views: {
         "": {
           templateUrl: 'templates/books/details.html',
           controller: 'BookDetailsCtrl',
           controllerAs: 'bookDetailsCtrl'
-        },
-        "header": {
-          templateUrl: 'templates/books/details-header.html',
-          controller: 'BookSearchParamsCtrl',
-          controllerAs: 'bookSearchParamsCtrl'
         }
       }
     });
 
-  $urlRouterProvider.otherwise('/books/search');
+  $urlRouterProvider.otherwise('/search');
 }

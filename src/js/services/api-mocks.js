@@ -2,7 +2,9 @@
 import jsonData from './books.json!json';
 
 export default class ApiMocks {
-  /** Class used for simulating API data results */
+  /**
+   * Used to simulate API responses
+   */
   constructor() {}
 
   /**

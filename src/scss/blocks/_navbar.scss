@@ -9,6 +9,10 @@
     line-height: 2rem;
   }
 
+  &--large {
+    height: 10rem;
+  }
+
   &__logo {
     color: $accent-text-color;
     font-family: 'Roboto-Bold';

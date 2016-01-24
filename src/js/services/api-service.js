@@ -1,37 +1,59 @@
-/**
- * API configuration.
- * @module services/api-service
- */
-
+import BookViewModel from '../view-models/book-view-model';
+import angular from 'angular';
 const privates = new WeakMap();
 
-export default class ApiService{
+export default class ApiService {
   /**
-  * Wraps the API endpoints with ngResource
-  * @memberof Services
-  * @param {ngResource} - The injected {@link https://docs.angularjs.org/api/ngResource/service/$resource $resource} from AngularJS
-  */
-  constructor($resource){
+   * Wraps the API endpoints with ngResource
+   * @param {ngResource} - The injected {@link https://docs.angularjs.org/api/ngResource/service/$resource $resource} from AngularJS
+   */
+  constructor($resource) {
     'ngInject';
+
+    const baseUrl = 'http://www.once-upon-api.com'; //The API URL (if it existed)
+    const bookGenres = $resource(baseUrl + '/api/book/genres');
+    const bookCategories = $resource(baseUrl + '/api/book/categories');
+    const bookSearch = $resource(baseUrl + '/api/book/search');
+    bookSearch.prototype = BookViewModel.prototype;
+    const book = $resource(baseUrl + '/api/book/:id', {
+      id: '@id'
+    });
+    book.prototype = BookViewModel.prototype;
+
     privates.set(this, {
       $resource,
-      baseUrl: 'http://www.once-upon-api.com'
+      bookGenres,
+      bookSearch,
+      bookCategories,
+      book
     });
   }
 
-  get bookGenres(){
-    return privates.get(this).$resource(privates.get(this).baseUrl + '/api/book/genres');
+  /**
+   * Returns the "book genres" resource object
+   */
+  get bookGenres() {
+    return privates.get(this).bookGenres;
   }
 
-  get bookCategories(){
-    return privates.get(this).$resource(privates.get(this).baseUrl + '/api/book/categories');
+  /**
+   * Returns the "book categories" resource object
+   */
+  get bookCategories() {
+    return privates.get(this).bookCategories;
   }
 
-  get bookSearch(){
-    return privates.get(this).$resource(privates.get(this).baseUrl + '/api/book/search');
+  /**
+   * Returns the "book search" resource object
+   */
+  get bookSearch() {
+    return privates.get(this).bookSearch;
   }
 
-  get book(){
-    return privates.get(this).$resource(privates.get(this).baseUrl + '/api/book/:id', {id:'@id'});
+  /**
+   * Returns the "book" resource object
+   */
+  get book() {
+    return privates.get(this).book;
   }
 }

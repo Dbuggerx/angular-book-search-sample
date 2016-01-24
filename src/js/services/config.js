@@ -7,7 +7,7 @@ import ApiService from './api-service';
 import ApiMocks from './api-mocks';
 
 /**
- * Here's where all services are configured into the 'BooksChallenge' module
+ * Here's where all services are configured into the 'BooksChallenge' main module
  * @see module:main
  */
 export default function () {

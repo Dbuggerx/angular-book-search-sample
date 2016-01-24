@@ -1,4 +1,4 @@
-<article data-ui-sref="books.details({id: bookCardCtrl.book.id})">
+<article data-ui-sref="details({id: bookCardCtrl.book.id})">
   <img ng-src="{{bookCardCtrl.book.cover}}" class="book-card__cover" alt="Loading book cover...">
   <div class="book-card__info-container">
     <header class="book-card__title">
@@ -14,7 +14,7 @@
       </div>
       <div class="book-card__date">
         <span class="icon icon--calendar"></span>
-        {{bookCardCtrl.publishedDateDiff}} ago
+        {{bookCardCtrl.book.relativePublishedDate}} ago
       </div>
     </footer>
   </div>

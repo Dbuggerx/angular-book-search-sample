@@ -1,8 +1,7 @@
 /**
- * API mocks, used to intercept requests and simulate its responses.
+ * Configuration of the fake API, used to intercept requests and simulate their responses.
  * @module config/http-backend
  */
-
 export default function ($httpBackend, ApiMocks) {
   'ngInject';
   $httpBackend.whenGET(/.+\.html$/).passThrough();

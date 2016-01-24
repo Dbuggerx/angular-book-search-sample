@@ -1,5 +1,5 @@
 .container {
-  @include outer-container();
+  @include outer-container;
   @include media($mobile) {
     padding: 0 1rem;
   }
@@ -10,11 +10,14 @@
 
 .grid {
   @include span-columns(12);
-  font-family: 'Roboto';
+
+  &--side-padding {
+    padding: 0 $base-spacing;
+  }
 
   &__main {
+    @extend .grid--side-padding;
     margin-top: $base-spacing;
     min-height: 70%;
-    padding: 0 $base-spacing;
   }
 }

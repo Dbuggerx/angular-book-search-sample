@@ -62,7 +62,7 @@ export default class BookSearchParamsCtrl {
 
   search() {
     const self = privates.get(this);
-    self.$state.go('books.search', {
+    self.$state.go('search', {
       'genre': self.selectedParams.genre,
       'category': self.selectedParams.category,
       'query': self.selectedParams.query
