@@ -1,13 +1,7 @@
 .book-card {
-  $card-background-color: #F6F6F6;
-  $spacing: .8em;
+  @extend %card;
+  
   $padding: 1em;
-
-  %border-bottom-divider {
-    border-bottom: 1px solid $divider-color;
-    margin-bottom: $spacing;
-    padding-bottom: $spacing;
-  }
 
   @include span-columns(3);
   @include omega(4n);
@@ -20,15 +14,10 @@
     @include span-columns(12 of 12);
   }
 
-  background-color: $light-bg-color;
-  border: solid 1px $divider-color;
-  border-radius: 8px;
   cursor: pointer;
   font-size: .8em;
-  margin-bottom: $spacing * 2;
-  margin-top: $spacing;
-  overflow: hidden;
-  box-shadow: 0 6px 10px -5px darken($divider-color, 30%);
+  margin-bottom: $small-spacing * 2;
+  margin-top: $small-spacing;
 
   &:hover {
     @include transform(scale(1.04));
@@ -49,7 +38,7 @@
 
   &__info-container {
     @include span-columns(12);
-    background-color: $card-background-color;
+    background-color: $primary-bg-color;
     padding: $padding / 2 $padding;
   }
 

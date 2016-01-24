@@ -1,10 +1,23 @@
 .book-details {
+  @extend %card;
+
   &__header {
-    background-color: $divider-color;
+    background-color: $primary-color;
+    color: $accent-text-color;
+    padding: $base-spacing;
+  }
+
+  &__author {
+    font-size: 2rem;
+  }
+
+  &__content {
+    background-color: $primary-bg-color;
+    padding: $base-spacing;
   }
 
   &__footer {
-    background-color: $divider-color;
+    padding: $base-spacing;
   }
 
   &__title {
