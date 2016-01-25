@@ -9,19 +9,21 @@ export default class BookSearchResultsCtrl {
       api: ApiService.bookSearch,
       currentPage: 0
     });
+    this.loading = true;
     this.noMoreResults = false;
     this.results = [];
     this.fetchNextPage();
   }
 
   fetchNextPage() {
+    this.loading = true;
     const self = privates.get(this);
     self.$stateParams.page = ++self.currentPage;
-    self.api.query(self.$stateParams).$promise
-      .then(data => {
-        this.noMoreResults = data.length === 0;
-        this.results = this.results.concat(data);
-      });
+    self.api.query(self.$stateParams, data => {
+      this.noMoreResults = data.length === 0;
+      this.results = this.results.concat(data);
+      this.loading = false;
+    });
   }
 
 }

@@ -35,6 +35,23 @@ describe('BookDetailsCtrl', () => {
       });
     });
 
+    it('should change "loadingBook"', () => {
+      let ctrl = getCtrl();
+      $scope.$apply();
+      expect(ctrl.loadingBook).toBeTruthy();
+      $httpBackend.flush();
+      expect(ctrl.loadingBook).toBeFalsy();
+    });
+
+    it('should change "loadingRelated"', () => {
+      $httpBackend.expectGET(/\/api\/book\/related\?id=testId&qty=3$/).respond();
+      let ctrl = getCtrl();
+      $scope.$apply();
+      expect(ctrl.loadingRelated).toBeTruthy();
+      $httpBackend.flush();
+      expect(ctrl.loadingRelated).toBeFalsy();
+    });
+
     it('should fetch book details', () => {
       let ctrl = getCtrl();
       $scope.$apply();

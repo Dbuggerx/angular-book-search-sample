@@ -25,10 +25,15 @@ describe('BookSearchResultsCtrl', () => {
 
   describe('constructor', () => {
     it('should fetch first page', () => {
-      $scope.$digest();
       $httpBackend.expectGET(/\/api\/book\/search\?page=1$/);
       let ctrl = getCtrl();
       $scope.$apply();
+    });
+
+    it('should set "loading" to true', () => {
+      let ctrl = getCtrl();
+      $scope.$apply();
+      expect(ctrl.loading).toBeTruthy();
     });
   });
 
@@ -36,6 +41,15 @@ describe('BookSearchResultsCtrl', () => {
     let ctrl;
     beforeEach(() => {
       ctrl = getCtrl();
+    });
+
+    it('should change the "loading" property', () => {
+      $httpBackend.expectGET(/\/api\/book\/search\?page=.+$/).respond();
+      ctrl.fetchNextPage();
+      $scope.$apply();
+      expect(ctrl.loading).toBeTruthy();
+      $httpBackend.flush();
+      expect(ctrl.loading).toBeFalsy();
     });
 
     it('should increment the page number on each call', () => {
@@ -61,6 +75,22 @@ describe('BookSearchResultsCtrl', () => {
       $scope.$apply();
       $httpBackend.flush();
       expect(ctrl.results).toEqual([1, 2, 3, 4, 5, 6]);
+    });
+
+    it('should set the "noMoreResults" to true when no results are available', () => {
+      $httpBackend.expectGET(/\/api\/book\/search\?page=.+$/).respond();
+      ctrl.fetchNextPage();
+      $scope.$apply();
+      $httpBackend.flush();
+      expect(ctrl.noMoreResults).toBeTruthy();
+    });
+
+    it('should set the "noMoreResults" to false when results are available', () => {
+      $httpBackend.expectGET(/\/api\/book\/search\?page=.+$/).respond([1, 2, 3]);
+      ctrl.fetchNextPage();
+      $scope.$apply();
+      $httpBackend.flush();
+      expect(ctrl.noMoreResults).toBeFalsy();
     });
 
   });

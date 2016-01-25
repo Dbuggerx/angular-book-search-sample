@@ -9,7 +9,7 @@
     </div>
     <div class="navbar navbar--large">
       <section class="container">
-        <div class="navbar__back" data-ui-sref="search" title="Back">
+        <div class="navbar__back" data-ui-sref="search" title="Back to search">
           <span class="icon icon--back"></span>
         </div>
         Book details
@@ -17,7 +17,11 @@
     </div>
   </header>
   <section class="grid grid--side-padding">
-    <article class="container book-details">
+    <p data-ng-show="bookDetailsCtrl.loadingBook" class="container book-details loading">
+      <span class="icon icon--wait"></span>
+      Loading...
+    </p>
+    <article class="container book-details" data-ng-hide="bookDetailsCtrl.loadingBook">
       <header class="book-details__header">
         <div class="book-details__title">
           <h1>
@@ -25,7 +29,6 @@
           </h1>
           <div class="book-details__author">
             <span class="icon icon--profile"></span> By {{bookDetailsCtrl.bookData.author.name}}
-
             <span class="icon icon--category icon--margin-left"></span> {{bookDetailsCtrl.bookData.genre.category}} / {{bookDetailsCtrl.bookData.genre.name}}
           </div>
         </div>
@@ -58,6 +61,10 @@
           If you liked this book, we recommend you check out these emerging titles:
         </p>
         <section class="book-details__related-container">
+          <p data-ng-show="bookDetailsCtrl.loadingRelated" class="loading">
+            <span class="icon icon--wait"></span>
+            Loading...
+          </p>
           <book-card class="book-card book-card--percentage" data-ng-repeat="book in bookDetailsCtrl.relatedBooks" data-book="book">
           </book-card>
         </section>

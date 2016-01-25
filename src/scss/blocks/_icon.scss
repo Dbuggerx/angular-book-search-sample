@@ -38,6 +38,12 @@
     color: $accent-color;
   }
 
+  &--wait::before {
+    @include icon('timer-sand');
+    font-size: 1.2rem;
+    color: $accent-color;
+  }
+
   &--margin-left {
     margin-left: $small-spacing;
   }
