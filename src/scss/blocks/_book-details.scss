@@ -6,55 +6,34 @@
   top: -$title-height;
   margin: auto;
 
-  %title-text {
-    @include media($tablet) {
-      @include span-columns(12 of 12);
-      line-height: $title-height / 2;
-    }
-    line-height: $title-height;
-  }
-
   &__header {
-    // @extend %flex-align-center;
+    @extend %flex-align-center;
     @include border-bottom-divider(0);
-    @include span-columns(12);
-    @include media($tablet) {
-      background: green;
-    }
-
+    flex-wrap: wrap;
     padding: 0 $base-spacing;
-    line-height: $title-height;
-
+    height: $title-height;
   }
 
   &__title {
-    @extend %title-text;
-    @include span-columns(9 of 12);
-    @include media($tablet) {
-      font-size: 1rem;
-    }
     @include media($mobile) {
-      font-size: .8rem;
+      font-size: 1rem;
+      width: 100%;
     }
     font-size: 1.5rem;
-  }
-
-  &__stats {
-    @extend %title-text;
-    @include span-columns(9 of 12);
-    @include media($tablet) {
-      font-size: 1rem;
-    }
-    @include media($mobile) {
-      font-size: .8rem;
-    }
-    font-size: 1.5rem;
+    width: 80%;
   }
 
   &__author {
-    @extend %title-text;
-    @include span-columns(3 of 12);
     font-size: .8rem;
+  }
+
+  &__stats {
+    @include media($mobile) {
+      display: none;
+    }
+    font-size: .7rem;
+    text-align: right;
+    width: 20%;
   }
 
   &__footer {

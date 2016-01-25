@@ -19,22 +19,17 @@
   <section class="grid grid--side-padding">
     <article class="container book-details">
       <header class="book-details__header">
-          <h1 class="book-details__title">
+        <div class="book-details__title">
+          <h1>
             {{bookDetailsCtrl.bookData.name}}
           </h1>
           <div class="book-details__author">
-            by {{bookDetailsCtrl.bookData.author.name}}
+            By {{bookDetailsCtrl.bookData.author.name}}
           </div>
-          <div class="book-details__stats">
-            <span>
-              <span class="icon icon--heart"></span>
-              {{bookDetailsCtrl.bookData.likes}} Likes
-            </span>
-            <span>
-              <span class="icon icon--calendar"></span>
-              {{bookDetailsCtrl.bookData.relativePublishedDate}} ago
-            </span>
-          </div>
+        </div>
+        <div class="book-details__stats">
+          <span class="icon icon--heart"></span> {{bookDetailsCtrl.bookData.likes}}
+          <span class="icon icon--calendar"></span> {{bookDetailsCtrl.bookData.relativePublishedDate}} ago
         </div>
       </header>
       <div class="book-details__content">
