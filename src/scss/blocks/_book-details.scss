@@ -15,7 +15,6 @@
     @extend %flex-align-center;
     @extend %lateral-padding;
     @include border-bottom-divider(0);
-    flex-wrap: wrap;
     padding: 0 $base-spacing;
     height: $title-height;
     margin-bottom: $base-spacing;
@@ -77,6 +76,7 @@
 
   &__large-text {
     font-size: 1.1rem;
+    margin-bottom: $base-spacing;
 
     &--secondary {
       color: $secondary-text-color;

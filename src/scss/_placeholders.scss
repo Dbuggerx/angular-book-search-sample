@@ -8,6 +8,9 @@
 
 /// Aligns elements using flexbox
 %flex-align-center {
-  display: flex;
-  align-items: center;
+  @include align-items(center);
+  @include display(flex);
+  @include flex-direction(row);
+  @include justify-content(flex-start);
+  @include flex-wrap(wrap);
 }
