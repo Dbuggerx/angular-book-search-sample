@@ -56,3 +56,13 @@ gulp.task('serve:jsdoc', ['jsdoc'], () => {
     },
   });
 });
+
+gulp.task('serve:sassdoc', ['sassdoc'], () => {
+  bs.init({
+    port: process.env.PORT || 3000,
+    open: true,
+    server: {
+      baseDir: global.paths.sassdocs
+    },
+  });
+});

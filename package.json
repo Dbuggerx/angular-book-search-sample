@@ -1,7 +1,7 @@
 {
   "name": "books-challenge",
-  "version": "0.0.1",
-  "description": "Sample SPA for displaying books",
+  "version": "1.0.0",
+  "description": "Sample SPA for searching books",
   "main": "main.js",
   "scripts": {
     "test": "karma start",
