@@ -25,4 +25,20 @@
     font-size: 1.2rem;
     color: $accent-text-color;
   }
+
+  &--category::before {
+    @include icon('tag-multiple');
+    font-size: 1.2rem;
+    color: $accent-color;
+  }
+
+  &--profile::before {
+    @include icon('account');
+    font-size: 1.2rem;
+    color: $accent-color;
+  }
+
+  &--margin-left {
+    margin-left: $small-spacing;
+  }
 }

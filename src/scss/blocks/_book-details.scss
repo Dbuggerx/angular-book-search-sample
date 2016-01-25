@@ -6,20 +6,26 @@
   top: -$title-height;
   margin: auto;
 
+  %lateral-padding {
+    padding: 0 $base-spacing;
+  }
+
   &__header {
     @extend %flex-align-center;
+    @extend %lateral-padding;
     @include border-bottom-divider(0);
     flex-wrap: wrap;
     padding: 0 $base-spacing;
     height: $title-height;
+    margin-bottom: $base-spacing;
   }
 
   &__title {
     @include media($mobile) {
-      font-size: 1rem;
+      font-size: .9rem;
       width: 100%;
     }
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     width: 80%;
   }
 
@@ -36,8 +42,39 @@
     width: 20%;
   }
 
+  &__content {
+    @include border-bottom-divider($base-spacing);
+    padding: 0 $base-spacing $base-spacing;
+  }
+
   &__footer {
     padding: $base-spacing;
+    text-align: center;
+    background-color: $divider-color;
+  }
+
+  &__author-container {
+    @extend %lateral-padding;
+    text-align: center;
+    margin-bottom: $base-spacing;
+  }
+
+  &__author-avatar {
+    border-radius: 50%;
+    margin: auto;
+    max-width: 130px;
+  }
+
+  &__large-text {
+    font-size: 1.1rem;
+
+    &--secondary {
+      color: $secondary-text-color;
+    }
+  }
+
+  &__description {
+    font-style: italic;
   }
 
 }

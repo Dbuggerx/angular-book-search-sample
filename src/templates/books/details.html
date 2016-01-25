@@ -24,19 +24,42 @@
             {{bookDetailsCtrl.bookData.name}}
           </h1>
           <div class="book-details__author">
+            <span class="icon icon--profile"></span>
             By {{bookDetailsCtrl.bookData.author.name}}
+
+            <span class="icon icon--category icon--margin-left"></span>
+            {{bookDetailsCtrl.bookData.genre.category}} /
+            {{bookDetailsCtrl.bookData.genre.name}}
           </div>
         </div>
         <div class="book-details__stats">
           <span class="icon icon--heart"></span> {{bookDetailsCtrl.bookData.likes}}
-          <span class="icon icon--calendar"></span> {{bookDetailsCtrl.bookData.relativePublishedDate}} ago
+          <span class="icon icon--calendar icon--margin-left"></span> {{bookDetailsCtrl.bookData.relativePublishedDate}} ago
         </div>
       </header>
       <div class="book-details__content">
-        Content
+        <p class="book-details__description">
+          {{bookDetailsCtrl.bookData.description}}
+        </p>
+        <p class="book-details__large-text book-details__large-text--secondary">
+          Introduction
+        </p>
+        <p data-ng-repeat="introduction in bookDetailsCtrl.bookData.introduction">
+          {{introduction.content}}
+        </p>
+      </div>
+      <div class="book-details__author-container">
+        <img ng-src="{{bookDetailsCtrl.bookData.author.avatar}}" class="book-details__author-avatar" alt="Loading...">
+        <p>
+          Written by {{bookDetailsCtrl.bookData.author.name}}
+        </p>
       </div>
       <footer class="book-details__footer">
-        Footer!
+        <h2 class="book-details__large-text">Similar reading</h2>
+        <br />
+        <p>
+          If you liked this book, we recommend you check out these emerging titles.
+        </p>
       </footer>
     </article>
   </section>
