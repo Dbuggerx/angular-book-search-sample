@@ -28,10 +28,30 @@ export default class ApiMocks {
    * @param {string} id - The desired book id
    * @return {obj} - The corresponding book, or undefined
    */
-  getBookById(id){
-    for(let book of this.constructor.getJsonData())
-      if(this.bookPropEqualsVal(book.id, id))
+  getBookById(id) {
+    for (let book of this.constructor.getJsonData())
+      if (this.bookPropEqualsVal(book.id, id))
         return book;
+  }
+
+  /**
+   * Returns books with the same category and genre
+   * @param  {string}           bookId The ID of the book to base the search
+   * @param  {int}              qty    Amount of books to return
+   * @return {array}                   The found books
+   */
+  getRelatedBooks(bookId, qty) {
+    let currentBook = this.getBookById(bookId);
+    let results = [];
+    for (let book of this.constructor.getJsonData()) {
+      if (this.bookPropEqualsVal(book.genre.category, currentBook.genre.category) &&
+        this.bookPropEqualsVal(book.genre.name, currentBook.genre.name) &&
+        !this.bookPropEqualsVal(book.id, currentBook.id))
+        results.push(book);
+      if (results.length >= qty)
+        break;
+    }
+    return results;
   }
 
   /**
@@ -63,7 +83,7 @@ export default class ApiMocks {
       this.bookPropEqualsVal(book.genre.category, params.category) &&
       this.bookPropEqualsVal(book.genre.name, params.genre) &&
       (this.bookPropContainsVal(book.author.name, params.query) ||
-      this.bookPropContainsVal(book.name, params.query))
+        this.bookPropContainsVal(book.name, params.query))
     );
   }
 

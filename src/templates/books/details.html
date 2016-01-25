@@ -24,12 +24,9 @@
             {{bookDetailsCtrl.bookData.name}}
           </h1>
           <div class="book-details__author">
-            <span class="icon icon--profile"></span>
-            By {{bookDetailsCtrl.bookData.author.name}}
+            <span class="icon icon--profile"></span> By {{bookDetailsCtrl.bookData.author.name}}
 
-            <span class="icon icon--category icon--margin-left"></span>
-            {{bookDetailsCtrl.bookData.genre.category}} /
-            {{bookDetailsCtrl.bookData.genre.name}}
+            <span class="icon icon--category icon--margin-left"></span> {{bookDetailsCtrl.bookData.genre.category}} / {{bookDetailsCtrl.bookData.genre.name}}
           </div>
         </div>
         <div class="book-details__stats">
@@ -58,8 +55,12 @@
         <h2 class="book-details__large-text">Similar reading</h2>
         <br />
         <p>
-          If you liked this book, we recommend you check out these emerging titles.
+          If you liked this book, we recommend you check out these emerging titles:
         </p>
+        <section class="book-details__related-container">
+          <book-card class="book-card book-card--percentage" data-ng-repeat="book in bookDetailsCtrl.relatedBooks" data-book="book">
+          </book-card>
+        </section>
       </footer>
     </article>
   </section>

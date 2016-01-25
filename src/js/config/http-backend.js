@@ -38,6 +38,22 @@ export default function ($httpBackend, ApiMocks) {
     }
   });
 
+  $httpBackend.whenGET(/\/api\/book\/related\?(.+\=.+)+$/).respond((method, url) => {
+    try {
+      let params = /\/api\/book\/related?\?(.+\=.+)+$/
+        .exec(url)[1]
+        .split('&')
+        .map((pair) => pair.split('='))
+        .reduce((obj, pair) => {
+          obj[pair[0]] = pair[1];
+          return obj;
+        }, {});
+      return [200, ApiMocks.getRelatedBooks(params.id, params.qty)];
+    } catch (e) {
+      return [500, e];
+    }
+  });
+
   $httpBackend.whenGET(/\/api\/book\/.+$/).respond((method, url) => {
     try {
       let id = /\/api\/book\/(.+)$/.exec(url)[1];

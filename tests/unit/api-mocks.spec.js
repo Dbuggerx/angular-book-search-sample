@@ -128,6 +128,56 @@ describe('ApiMocks', () => {
     });
   });
 
+  describe('getRelatedBooks', () => {
+    beforeEach(() => {
+      spyOn(ApiMocks, 'getJsonData').and.returnValue([{
+        'id':'1',
+        'genre': {
+          'category': 'Non-Fiction',
+          'name': 'History'
+        },
+        'name': 'Book1'
+      },
+      {
+        'id':'2',
+        'genre': {
+          'category': 'Non-Fiction',
+          'name': 'History'
+        },
+        'name': 'Book2'
+      },
+      {
+        'id':'3',
+        'genre': {
+          'category': 'Non-Fiction',
+          'name': 'History'
+        },
+        'name': 'Book3'
+      }, {
+        'id':'b284012025',
+        'genre': {
+          'category': 'Fiction',
+          'name': 'Arts'
+        },
+        'author': {
+          'avatar': 'http://lorempixel.com/250/250/',
+          'name': 'Harper Lee'
+        },
+        'name': 'To Kill a Mockingbird'
+      }]);
+    });
+
+    it('should return other books with same category / genre', () => {
+      let results = apiMock.getRelatedBooks('1', 2);
+      expect(results.length).toBe(2);
+      for(let book of results){
+        expect(book.genre.category).toBe('Non-Fiction');
+        expect(book.genre.name).toBe('History');
+        expect(book.name).not.toBe('book1');
+      }
+    });
+  });
+
   describe('paramsHaveValues', () => {
     it('should tell if any value is present, besides the page', () => {
       expect(apiMock.paramsHaveValues({})).toBeFalsy();

@@ -7,7 +7,9 @@ describe('BookDetailsCtrl', () => {
   let getCtrl = () => {
     return $controller('BookDetailsCtrl', {
       $scope,
-      $stateParams: {id: 'testId'}
+      $stateParams: {
+        id: 'testId'
+      }
     });
   };
 
@@ -24,13 +26,28 @@ describe('BookDetailsCtrl', () => {
   });
 
   describe('constructor', () => {
+    beforeEach(() => {
+      $httpBackend.expectGET(/\/api\/book\/.+$/).respond({
+        'genre': {
+          'category': 'Non-Fiction',
+          'name': 'History'
+        }
+      });
+    });
+
     it('should fetch book details', () => {
-      $scope.$digest();
-      $httpBackend.expectGET(/\/api\/book\/.+$/).respond();
+      let ctrl = getCtrl();
+      $scope.$apply();
+      $httpBackend.flush();
+    });
+
+    it('should fetch related books', () => {
+      $httpBackend.expectGET(/\/api\/book\/related\?id=testId&qty=3$/).respond();
       let ctrl = getCtrl();
       $scope.$apply();
       $httpBackend.flush();
     });
   });
+
 
 });

@@ -19,13 +19,16 @@ export default class ApiService {
       id: '@id'
     });
     book.prototype = BookViewModel.prototype;
+    const relatedBooks = $resource(baseUrl + '/api/book/related');
+    relatedBooks.prototype = BookViewModel.prototype;
 
     privates.set(this, {
       $resource,
       bookGenres,
       bookSearch,
       bookCategories,
-      book
+      book,
+      relatedBooks
     });
   }
 
@@ -55,5 +58,9 @@ export default class ApiService {
    */
   get book() {
     return privates.get(this).book;
+  }
+
+  get relatedBooks() {
+    return privates.get(this).relatedBooks;
   }
 }

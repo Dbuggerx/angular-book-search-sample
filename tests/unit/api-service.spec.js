@@ -66,7 +66,7 @@ describe('ApiService', () => {
       $httpBackend.flush();
     });
 
-    it('should return instances of "BookViemModel"', () => {
+    it('should return instances of "BookViewModel"', () => {
       let results = apiService.bookSearch.query();
       $httpBackend.flush();
       for (let result of results) {
@@ -87,12 +87,32 @@ describe('ApiService', () => {
       $httpBackend.flush();
     });
 
-    it('should return instance of "BookViemModel"', () => {
+    it('should return instance of "BookViewModel"', () => {
       let result = apiService.book.get({
         id: 'the-book-id'
       });
       $httpBackend.flush();
       expect(result instanceof BookViewModel).toBeTruthy();
+    });
+  });
+
+
+  describe('relatedBooks', () => {
+    beforeEach(() => {
+      $httpBackend.expectGET(/\/api\/book\/related$/).respond(bookMocks);
+    });
+
+    it('should call /api/book/related', () => {
+      apiService.relatedBooks.query();
+      $httpBackend.flush();
+    });
+
+    it('should return instances of "BookViewModel"', () => {
+      let results = apiService.relatedBooks.query();
+      $httpBackend.flush();
+      for (let result of results) {
+        expect(result instanceof BookViewModel).toBeTruthy();
+      }
     });
   });
 
