@@ -5,8 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "karma start",
-    "preinstall": "npm install -g jspm && npm install -g jspm-bower-endpoint && jspm registry create bower jspm-bower-endpoint",
-    "postinstall": "jspm install"
+    "preinstall": "npm install -g jspm && npm install -g gulp",
+    "postinstall": "jspm registry create bower jspm-bower-endpoint && jspm install"
   },
   "keywords": [
     "angularjs",
@@ -66,6 +66,7 @@
     "jasmine-core": "^2.4.1",
     "jshint": "^2.9.1",
     "jspm": "^0.16.23",
+    "jspm-bower-endpoint": "^0.3.2",
     "karma": "^0.13.19",
     "karma-chrome-launcher": "^0.2.2",
     "karma-cli": "^0.1.2",
