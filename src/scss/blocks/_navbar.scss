@@ -20,8 +20,12 @@
   }
 
   &__link {
-
     &--right {
+      @include media($mobile) {
+        float: none;
+        display: block;
+      }
+
       float: right;
     }
 
