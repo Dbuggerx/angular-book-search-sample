@@ -10,7 +10,7 @@
     <footer>
       <div class="book-card__likes">
         <span class="icon icon--heart"></span>
-        {{bookCardCtrl.book.likes}} Likes
+        <ng-pluralize count="bookCardCtrl.book.likes" when="{'one': '1 Like', 'other': '{} Likes'}"></ng-pluralize>
       </div>
       <div class="book-card__date">
         <span class="icon icon--calendar"></span>

@@ -18,8 +18,7 @@
   </header>
   <section class="grid grid--side-padding">
     <p data-ng-show="bookDetailsCtrl.loadingBook" class="container book-details loading">
-      <span class="icon icon--wait"></span>
-      Loading...
+      <span class="icon icon--wait"></span> Loading...
     </p>
     <article class="container book-details" data-ng-hide="bookDetailsCtrl.loadingBook">
       <header class="book-details__header">
@@ -33,7 +32,8 @@
           </div>
         </div>
         <div class="book-details__stats">
-          <span class="icon icon--heart"></span> {{bookDetailsCtrl.bookData.likes}}
+          <span class="icon icon--heart"></span>
+          <ng-pluralize count="bookDetailsCtrl.bookData.likes" when="{'one': '1 Like', 'other': '{} Likes'}"></ng-pluralize>
           <span class="icon icon--calendar icon--margin-left"></span> {{bookDetailsCtrl.bookData.relativePublishedDate}} ago
         </div>
       </header>
@@ -56,16 +56,17 @@
       </div>
       <footer class="book-details__footer">
         <h2 class="book-details__large-text">Similar reading</h2>
-        <br />
         <p>
-          If you liked this book, we recommend you check out these emerging titles:
+          <ng-pluralize count="bookDetailsCtrl.relatedBooks.length" when="{'0': 'Nothing found',
+          'one': 'If you liked this book, we recommend you check out this emerging title:',
+          'other': 'If you liked this book, we recommend you check out these emerging titles:'}">
+          </ng-pluralize>
         </p>
         <section class="book-details__related-container">
           <p data-ng-show="bookDetailsCtrl.loadingRelated" class="loading">
-            <span class="icon icon--wait"></span>
-            Loading...
+            <span class="icon icon--wait"></span> Loading...
           </p>
-          <book-card class="book-card book-card--percentage" data-ng-repeat="book in bookDetailsCtrl.relatedBooks" data-book="book">
+          <book-card class="book-card book-card--float" data-ng-repeat="book in bookDetailsCtrl.relatedBooks" data-book="book">
           </book-card>
         </section>
       </footer>
