@@ -1,7 +1,0 @@
-/// Inserts a divider line at the bottom of the element
-/// @param {int} $spacing The space to use as margin and padding
-@mixin border-bottom-divider ($spacing) {
-  border-bottom: 1px solid $divider-color;
-  margin-bottom: $spacing;
-  padding-bottom: $spacing;
-}
