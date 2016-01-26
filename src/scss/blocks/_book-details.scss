@@ -8,6 +8,9 @@
 
   /// Adds lateral padding to the element
   %lateral-padding {
+    @include media($tablet) {
+      padding: 0;
+    }
     padding: 0 $base-spacing;
   }
 
@@ -22,15 +25,39 @@
 
   &__title {
     @include media($mobile) {
-      font-size: .9rem;
       width: 100%;
     }
-    font-size: 1.6rem;
     width: 80%;
   }
 
-  &__author {
+  &__secondary-title {
     font-size: .8rem;
+  }
+
+  &__inline-title-item {
+    @include media($mobile) {
+      display: block;
+      margin-left: 0;
+
+    }
+    display: inline-block;
+    margin-left: $small-spacing;
+    line-height: 1rem;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__book-name {
+    @include media($tablet) {
+      font-size: 1.2rem;
+    }
+    @include media($mobile) {
+      font-size: 1.1rem;
+      padding-top: $small-spacing / 2;
+    }
+    font-size: 1.6rem;
+    padding-bottom: $small-spacing / 2;
   }
 
   &__stats {
@@ -43,8 +70,9 @@
   }
 
   &__content {
+    @extend %lateral-padding;
     @include border-bottom-divider($base-spacing);
-    padding: 0 $base-spacing $base-spacing;
+    padding-top: $base-spacing;
   }
 
   &__footer {

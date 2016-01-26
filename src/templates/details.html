@@ -17,18 +17,26 @@
     <article class="container book-details" data-ng-hide="bookDetailsCtrl.loadingBook">
       <header class="book-details__header">
         <div class="book-details__title">
-          <h1>
+          <h1 class="book-details__book-name">
             {{bookDetailsCtrl.bookData.name}}
           </h1>
-          <div class="book-details__author">
-            <span class="icon icon--profile"></span> By {{bookDetailsCtrl.bookData.author.name}}
-            <span class="icon icon--category icon--margin-left"></span> {{bookDetailsCtrl.bookData.genre.category}} / {{bookDetailsCtrl.bookData.genre.name}}
+          <div class="book-details__secondary-title">
+            <div class="book-details__inline-title-item">
+              <span class="icon icon--profile"></span> By {{bookDetailsCtrl.bookData.author.name}}
+            </div>
+            <div class="book-details__inline-title-item">
+              <span class="icon icon--category"></span> {{bookDetailsCtrl.bookData.genre.category}} / {{bookDetailsCtrl.bookData.genre.name}}
+            </div>
           </div>
         </div>
         <div class="book-details__stats">
-          <span class="icon icon--heart"></span>
-          <ng-pluralize count="bookDetailsCtrl.bookData.likes" when="{'one': '1 Like', 'other': '{} Likes'}"></ng-pluralize>
-          <span class="icon icon--calendar icon--margin-left"></span> {{bookDetailsCtrl.bookData.relativePublishedDate}} ago
+          <div class="book-details__inline-title-item">
+            <span class="icon icon--heart"></span>
+            <ng-pluralize count="bookDetailsCtrl.bookData.likes" when="{'one': '1 Like', 'other': '{} Likes'}"></ng-pluralize>
+          </div>
+          <div class="book-details__inline-title-item">
+            <span class="icon icon--calendar"></span> {{bookDetailsCtrl.bookData.relativePublishedDate}} ago
+          </div>
         </div>
       </header>
       <div class="book-details__content">
