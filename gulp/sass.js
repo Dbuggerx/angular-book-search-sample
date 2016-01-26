@@ -59,6 +59,7 @@ gulp.task('build-css', ['clean-assets', 'sass'], () => {
     })], {
       to: path.join(global.paths.dist, 'app.min.css')
     }))
+    .pipe(minifyCss())
     .pipe(rename({
       suffix: '.min'
     }))
